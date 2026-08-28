@@ -12,13 +12,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-cream-100/95 backdrop-blur supports-[backdrop-filter]:bg-cream-100/80 border-b border-cream-300">
       <div className="hidden md:flex justify-end gap-6 bg-navy-900 text-cream-100 text-sm px-6 lg:px-10 py-1.5">
-        <a href={siteConfig.phone1Href} className="flex items-center gap-1.5 hover:text-clay-400 transition-colors">
+        <a href={siteConfig.phoneHref} className="flex items-center gap-1.5 hover:text-clay-400 transition-colors">
           <PhoneIcon className="w-3.5 h-3.5" />
-          {siteConfig.phone1}
-        </a>
-        <a href={siteConfig.phone2Href} className="flex items-center gap-1.5 hover:text-clay-400 transition-colors">
-          <PhoneIcon className="w-3.5 h-3.5" />
-          {siteConfig.phone2}
+          {siteConfig.phone}
         </a>
         <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-1.5 hover:text-clay-400 transition-colors">
           <MailIcon className="w-3.5 h-3.5" />
@@ -98,13 +94,9 @@ export default function Header() {
             Contactează-ne
           </Link>
           <div className="pt-2 border-t border-cream-300 flex flex-col gap-2 text-sm text-charcoal-600">
-            <a href={siteConfig.phone1Href} className="flex items-center gap-2">
+            <a href={siteConfig.phoneHref} className="flex items-center gap-2">
               <PhoneIcon className="w-4 h-4 text-clay-600" />
-              {siteConfig.phone1}
-            </a>
-            <a href={siteConfig.phone2Href} className="flex items-center gap-2">
-              <PhoneIcon className="w-4 h-4 text-clay-600" />
-              {siteConfig.phone2}
+              {siteConfig.phone}
             </a>
             <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2">
               <MailIcon className="w-4 h-4 text-clay-600" />

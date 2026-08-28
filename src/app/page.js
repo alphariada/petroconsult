@@ -76,10 +76,10 @@ export default function Home() {
                 Spații Disponibile
               </Link>
               <Link
-                href="/planuri"
+                href="/despre-noi"
                 className="inline-flex items-center rounded-full border border-white/40 hover:bg-white/10 transition-colors px-7 py-3.5 font-semibold text-white"
               >
-                Vezi Planurile
+                Despre Noi
               </Link>
             </div>
           </Reveal>
@@ -106,6 +106,7 @@ export default function Home() {
             alt="Birou Petroconsult Invest cu diplomă de mulțumire"
             fill
             className="object-cover"
+            sizes="(min-width: 1024px) 50vw, 100vw"
           />
         </Reveal>
         <Reveal delay={150} className="order-1 lg:order-2">
@@ -173,10 +174,10 @@ export default function Home() {
               pentru închiriere.
             </p>
             <Link
-              href="/planuri"
+              href="/spatii-disponibile"
               className="inline-flex items-center rounded-full bg-clay-500 hover:bg-clay-600 transition-colors px-7 py-3.5 font-semibold text-white"
             >
-              Vezi Corpurile și Planurile
+              Vezi Spațiile Disponibile
             </Link>
           </div>
           <div className="grid grid-cols-3 gap-3">
@@ -241,10 +242,10 @@ export default function Home() {
                 Contactează-ne
               </Link>
               <a
-                href={siteConfig.phone1Href}
+                href={siteConfig.phoneHref}
                 className="inline-flex items-center rounded-full border border-white/40 hover:bg-white/10 transition-colors px-7 py-3.5 font-semibold text-white"
               >
-                Sună la {siteConfig.phone1}
+                Sună la {siteConfig.phone}
               </a>
             </div>
           </Reveal>

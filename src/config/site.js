@@ -1,17 +1,14 @@
 export const siteConfig = {
   name: "Petroconsult Business Centre",
   tagline: "Gândim și investim pentru viitor!",
-  phone1: "0244 515 635",
-  phone1Href: "tel:+40244515635",
-  phone2: "0728 411 741",
-  phone2Href: "tel:+40728411741",
+  phone: "0728 411 741",
+  phoneHref: "tel:+40728411741",
   email: "invest@petroconsult.ro",
   address: "Str. Diligenței, nr. 18, Ploiești, PH",
 };
 
 export const navLinks = [
   { label: "Despre Noi", href: "/despre-noi" },
-  { label: "Planuri", href: "/planuri" },
   { label: "Spații Disponibile", href: "/spatii-disponibile" },
   { label: "Sala de Evenimente", href: "/sala-de-evenimente" },
   { label: "Contact", href: "/contact" },

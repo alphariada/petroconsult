@@ -42,3 +42,46 @@ export function ChevronRightIcon({ className = "w-4 h-4" }) {
     </svg>
   );
 }
+
+export function AwardIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="12" cy="8" r="5" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M8.5 12.5 7 21l5-2.5L17 21l-1.5-8.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function TrendingUpIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="M3 17l6-6 4 4 8-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M15 7h6v6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function UsersIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="9" cy="8" r="3.2" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="16.5" cy="9.5" r="2.6" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M3.5 20c.6-3.2 3-5 5.5-5s4.9 1.8 5.5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M14.7 15.2c2 .3 3.7 1.9 4.2 4.8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function QuoteIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M9.5 6C6.5 7.5 5 10 5 13c0 2.2 1.5 3.5 3.3 3.5 1.7 0 3-1.3 3-3 0-1.6-1.1-2.8-2.6-3 .3-1.4 1.5-2.8 3.3-3.6L9.5 6Zm8 0c-3 1.5-4.5 4-4.5 7 0 2.2 1.5 3.5 3.3 3.5 1.7 0 3-1.3 3-3 0-1.6-1.1-2.8-2.6-3 .3-1.4 1.5-2.8 3.3-3.6L17.5 6Z" />
+    </svg>
+  );
+}

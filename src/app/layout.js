@@ -35,7 +35,7 @@ const localBusinessJsonLd = {
   name: siteConfig.name,
   description:
     "Spații de birouri de închiriat în centrul Ploieștiului — trei corpuri de clădire, peste 8.000 mp, renovate în 2024.",
-  telephone: [siteConfig.phone1, siteConfig.phone2],
+  telephone: siteConfig.phone,
   email: siteConfig.email,
   url: "https://petroconsult.ro",
   address: {

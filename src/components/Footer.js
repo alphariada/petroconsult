@@ -60,15 +60,9 @@ export default function Footer() {
               {siteConfig.address}
             </li>
             <li>
-              <a href={siteConfig.phone1Href} className="flex items-center gap-2.5 hover:text-white transition-colors">
+              <a href={siteConfig.phoneHref} className="flex items-center gap-2.5 hover:text-white transition-colors">
                 <PhoneIcon className="w-4 h-4 shrink-0 text-clay-400" />
-                {siteConfig.phone1}
-              </a>
-            </li>
-            <li>
-              <a href={siteConfig.phone2Href} className="flex items-center gap-2.5 hover:text-white transition-colors">
-                <PhoneIcon className="w-4 h-4 shrink-0 text-clay-400" />
-                {siteConfig.phone2}
+                {siteConfig.phone}
               </a>
             </li>
             <li>
