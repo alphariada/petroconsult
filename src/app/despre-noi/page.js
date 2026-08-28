@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import Reveal from "@/components/Reveal";
+import ScrollCardSwap from "@/components/ScrollCardSwap";
 import { AwardIcon, TrendingUpIcon, UsersIcon, QuoteIcon } from "@/components/icons";
 
 export const metadata = {
@@ -75,6 +76,61 @@ const testimonials = [
     logo: "/images/site-salt-logo.png",
   },
 ];
+
+function ValueCard({ v }) {
+  return (
+    <div className="bg-cream-100 rounded-2xl p-8 border border-cream-300 h-full">
+      <div className="w-12 h-12 rounded-xl bg-clay-100 text-clay-600 flex items-center justify-center mb-6">
+        <v.icon className="w-6 h-6" />
+      </div>
+      <h3 className="font-display font-bold text-xl text-navy-800 mb-3">{v.title}</h3>
+      <p className="text-charcoal-600 leading-relaxed">{v.desc}</p>
+    </div>
+  );
+}
+
+function CorpCard({ c, i }) {
+  return (
+    <div className="group h-full flex flex-col">
+      <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shrink-0">
+        <Image
+          src={c.image}
+          alt={c.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(min-width: 1024px) 33vw, 100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/10 to-transparent" />
+        <span className="absolute top-5 left-5 font-display font-extrabold text-4xl text-white/25">
+          0{i + 1}
+        </span>
+        <h3 className="absolute bottom-5 left-5 right-5 font-display font-bold text-2xl text-white">
+          {c.title}
+        </h3>
+      </div>
+      <p className="text-charcoal-600 leading-relaxed mt-5">{c.desc}</p>
+    </div>
+  );
+}
+
+function TestimonialCard({ t }) {
+  return (
+    <div className="bg-navy-900 rounded-2xl p-8 border border-white/10 flex flex-col h-full">
+      <QuoteIcon className="w-7 h-7 text-clay-400 mb-5" />
+      <p className="text-cream-100/85 leading-relaxed mb-6 flex-1">&bdquo;{t.quote}&rdquo;</p>
+      <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+        {t.logo ? (
+          <Image src={t.logo} alt={t.name} width={100} height={32} className="h-6 w-auto opacity-80" />
+        ) : (
+          <div className="w-8 h-8 rounded-full bg-clay-500/20 text-clay-400 font-display font-bold text-sm flex items-center justify-center">
+            {t.name.charAt(0)}
+          </div>
+        )}
+        <span className="text-cream-100/70 text-sm font-medium">{t.name}</span>
+      </div>
+    </div>
+  );
+}
 
 export default function DespreNoi() {
   return (
@@ -195,7 +251,7 @@ export default function DespreNoi() {
 
       <section className="bg-cream-200 border-y border-cream-300">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 sm:py-28">
-          <Reveal className="text-center max-w-2xl mx-auto mb-14">
+          <Reveal className="hidden lg:block text-center max-w-2xl mx-auto mb-14">
             <p className="text-clay-600 font-semibold tracking-wide uppercase text-sm mb-3">
               Ce ne diferențiază
             </p>
@@ -203,28 +259,25 @@ export default function DespreNoi() {
               Un partener stabil pentru afacerea ta
             </h2>
           </Reveal>
-          <div className="grid sm:grid-cols-3 gap-6 lg:gap-8">
+          <div className="hidden lg:grid lg:grid-cols-3 gap-6 lg:gap-8">
             {values.map((v, i) => (
-              <Reveal
-                key={v.title}
-                delay={i * 120}
-                className="bg-cream-100 rounded-2xl p-8 border border-cream-300"
-              >
-                <div className="w-12 h-12 rounded-xl bg-clay-100 text-clay-600 flex items-center justify-center mb-6">
-                  <v.icon className="w-6 h-6" />
-                </div>
-                <h3 className="font-display font-bold text-xl text-navy-800 mb-3">
-                  {v.title}
-                </h3>
-                <p className="text-charcoal-600 leading-relaxed">{v.desc}</p>
+              <Reveal key={v.title} delay={i * 120}>
+                <ValueCard v={v} />
               </Reveal>
             ))}
           </div>
+          <ScrollCardSwap
+            eyebrow="Ce ne diferențiază"
+            title="Un partener stabil pentru afacerea ta"
+            items={values.map((v) => (
+              <ValueCard key={v.title} v={v} />
+            ))}
+          />
         </div>
       </section>
 
       <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 sm:py-28">
-        <Reveal className="max-w-2xl mb-14">
+        <Reveal className="hidden lg:block max-w-2xl mb-14">
           <p className="text-clay-600 font-semibold tracking-wide uppercase text-sm mb-3">
             Portofoliul nostru
           </p>
@@ -233,29 +286,20 @@ export default function DespreNoi() {
           </h2>
         </Reveal>
 
-        <div className="grid sm:grid-cols-3 gap-6 lg:gap-8">
+        <div className="hidden lg:grid lg:grid-cols-3 gap-6 lg:gap-8">
           {corpItems.map((c, i) => (
-            <Reveal key={c.title} delay={i * 130} className="group">
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
-                <Image
-                  src={c.image}
-                  alt={c.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/10 to-transparent" />
-                <span className="absolute top-5 left-5 font-display font-extrabold text-4xl text-white/25">
-                  0{i + 1}
-                </span>
-                <h3 className="absolute bottom-5 left-5 right-5 font-display font-bold text-2xl text-white">
-                  {c.title}
-                </h3>
-              </div>
-              <p className="text-charcoal-600 leading-relaxed mt-5">{c.desc}</p>
+            <Reveal key={c.title} delay={i * 130}>
+              <CorpCard c={c} i={i} />
             </Reveal>
           ))}
         </div>
+        <ScrollCardSwap
+          eyebrow="Portofoliul nostru"
+          title="Trei corpuri, un singur ansamblu de business"
+          items={corpItems.map((c, i) => (
+            <CorpCard key={c.title} c={c} i={i} />
+          ))}
+        />
 
         <Reveal className="flex flex-wrap gap-4 mt-14">
           <Link
@@ -269,7 +313,7 @@ export default function DespreNoi() {
 
       <section className="bg-navy-950">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 sm:py-28">
-          <Reveal className="text-center max-w-2xl mx-auto mb-14">
+          <Reveal className="hidden lg:block text-center max-w-2xl mx-auto mb-14">
             <p className="text-clay-400 font-semibold tracking-wide uppercase text-sm mb-3">
               Companii care ne-au ales
             </p>
@@ -278,36 +322,21 @@ export default function DespreNoi() {
             </h2>
           </Reveal>
 
-          <div className="grid sm:grid-cols-3 gap-6 mb-16">
+          <div className="hidden lg:grid lg:grid-cols-3 gap-6 mb-16">
             {testimonials.map((t, i) => (
-              <Reveal
-                key={t.name}
-                delay={i * 120}
-                className="bg-navy-900 rounded-2xl p-8 border border-white/10 flex flex-col h-full"
-              >
-                <QuoteIcon className="w-7 h-7 text-clay-400 mb-5" />
-                <p className="text-cream-100/85 leading-relaxed mb-6 flex-1">
-                  &bdquo;{t.quote}&rdquo;
-                </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-white/10">
-                  {t.logo ? (
-                    <Image
-                      src={t.logo}
-                      alt={t.name}
-                      width={100}
-                      height={32}
-                      className="h-6 w-auto opacity-80"
-                    />
-                  ) : (
-                    <div className="w-8 h-8 rounded-full bg-clay-500/20 text-clay-400 font-display font-bold text-sm flex items-center justify-center">
-                      {t.name.charAt(0)}
-                    </div>
-                  )}
-                  <span className="text-cream-100/70 text-sm font-medium">{t.name}</span>
-                </div>
+              <Reveal key={t.name} delay={i * 120}>
+                <TestimonialCard t={t} />
               </Reveal>
             ))}
           </div>
+          <ScrollCardSwap
+            eyebrow="Companii care ne-au ales"
+            title="Încrederea celor care lucrează aici, în fiecare zi"
+            dark
+            items={testimonials.map((t) => (
+              <TestimonialCard key={t.name} t={t} />
+            ))}
+          />
         </div>
       </section>
 
