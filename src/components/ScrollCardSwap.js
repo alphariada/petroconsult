@@ -2,19 +2,53 @@
 
 import { useEffect, useRef, useState } from "react";
 
+const AUTO_ADVANCE_MS = 5000;
+
 export default function ScrollCardSwap({ eyebrow, title, items, dark = false }) {
   const [active, setActive] = useState(0);
   const scrollerRef = useRef(null);
+  const timerRef = useRef(null);
+  const isVisibleRef = useRef(false);
 
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
+
+    const resetTimer = () => {
+      clearTimeout(timerRef.current);
+      if (!isVisibleRef.current) return;
+      timerRef.current = setTimeout(() => {
+        if (!isVisibleRef.current) return;
+        const current = Math.round(el.scrollLeft / el.clientWidth);
+        const next = (current + 1) % items.length;
+        el.scrollTo({ left: next * el.clientWidth, behavior: "smooth" });
+      }, AUTO_ADVANCE_MS);
+    };
+
     const onScroll = () => {
       const idx = Math.round(el.scrollLeft / el.clientWidth);
       setActive(Math.min(items.length - 1, Math.max(0, idx)));
+      // Any scroll — user swipe or our own auto-advance — restarts the wait.
+      resetTimer();
     };
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) resetTimer();
+        else clearTimeout(timerRef.current);
+      },
+      { threshold: 0.5 }
+    );
+
     el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
+    io.observe(el);
+
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      io.disconnect();
+      clearTimeout(timerRef.current);
+    };
   }, [items.length]);
 
   return (
