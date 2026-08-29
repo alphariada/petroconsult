@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactForm() {
+  const { t } = useLanguage();
   const [values, setValues] = useState({ name: "", email: "", phone: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [errorMsg, setErrorMsg] = useState("");
@@ -22,7 +24,7 @@ export default function ContactForm() {
         body: JSON.stringify(values),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "A apărut o eroare.");
+      if (!res.ok) throw new Error(data.error || t("contact.form.errorGeneric"));
       setStatus("sent");
       setValues({ name: "", email: "", phone: "", message: "" });
     } catch (err) {
@@ -34,8 +36,8 @@ export default function ContactForm() {
   if (status === "sent") {
     return (
       <div className="rounded-2xl bg-cream-200 border border-cream-300 p-8 text-center">
-        <h3 className="font-display font-bold text-xl text-navy-800 mb-2">Mesaj trimis!</h3>
-        <p className="text-charcoal-600">Îți răspundem cât mai curând posibil.</p>
+        <h3 className="font-display font-bold text-xl text-navy-800 mb-2">{t("contact.form.sentTitle")}</h3>
+        <p className="text-charcoal-600">{t("contact.form.sentText")}</p>
       </div>
     );
   }
@@ -51,7 +53,7 @@ export default function ContactForm() {
           name="name"
           value={values.name}
           onChange={handleChange}
-          placeholder="Nume *"
+          placeholder={t("contact.form.namePlaceholder")}
           required
           className={inputClass}
         />
@@ -60,7 +62,7 @@ export default function ContactForm() {
           name="phone"
           value={values.phone}
           onChange={handleChange}
-          placeholder="Telefon"
+          placeholder={t("contact.form.phonePlaceholder")}
           className={inputClass}
         />
       </div>
@@ -69,7 +71,7 @@ export default function ContactForm() {
         name="email"
         value={values.email}
         onChange={handleChange}
-        placeholder="Email *"
+        placeholder={t("contact.form.emailPlaceholder")}
         required
         className={inputClass}
       />
@@ -77,7 +79,7 @@ export default function ContactForm() {
         name="message"
         value={values.message}
         onChange={handleChange}
-        placeholder="Mesajul tău *"
+        placeholder={t("contact.form.messagePlaceholder")}
         required
         rows={4}
         className={`${inputClass} resize-none`}
@@ -90,7 +92,7 @@ export default function ContactForm() {
         disabled={status === "sending"}
         className="inline-flex items-center rounded-full bg-clay-500 hover:bg-clay-600 disabled:opacity-60 transition-colors px-7 py-3.5 font-semibold text-white"
       >
-        {status === "sending" ? "Se trimite..." : "Trimite mesajul"}
+        {status === "sending" ? t("contact.form.sending") : t("contact.form.sendBtn")}
       </button>
     </form>
   );

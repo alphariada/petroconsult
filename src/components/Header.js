@@ -5,13 +5,50 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig, navLinks } from "@/config/site";
 import { PhoneIcon, MailIcon } from "@/components/icons";
+import { useLanguage } from "@/context/LanguageContext";
+
+function LanguageSwitch({ className = "" }) {
+  const { locale, setLocale } = useLanguage();
+  const isRo = locale === "ro";
+
+  return (
+    <div className={`relative inline-flex items-center rounded-full bg-cream-200 p-1 ${className}`}>
+      <span
+        className="absolute inset-y-1 w-[calc(50%-4px)] rounded-full bg-white shadow-sm transition-transform duration-300 ease-out"
+        style={{ transform: isRo ? "translateX(0%)" : "translateX(100%)" }}
+        aria-hidden
+      />
+      <button
+        type="button"
+        onClick={() => setLocale("ro")}
+        aria-pressed={isRo}
+        className={`relative z-10 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+          isRo ? "text-navy-800" : "text-charcoal-400 hover:text-charcoal-600"
+        }`}
+      >
+        <span className="text-base leading-none">🇷🇴</span> RO
+      </button>
+      <button
+        type="button"
+        onClick={() => setLocale("en")}
+        aria-pressed={!isRo}
+        className={`relative z-10 flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+          !isRo ? "text-navy-800" : "text-charcoal-400 hover:text-charcoal-600"
+        }`}
+      >
+        <span className="text-base leading-none">🇬🇧</span> EN
+      </button>
+    </div>
+  );
+}
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <header className="sticky top-0 z-50 bg-cream-100/95 backdrop-blur supports-[backdrop-filter]:bg-cream-100/80 border-b border-cream-300">
-      <div className="hidden md:flex justify-end gap-6 bg-navy-900 text-cream-100 text-sm px-6 lg:px-10 py-1.5">
+      <div className="hidden md:flex items-center justify-end gap-6 bg-navy-900 text-cream-100 text-sm px-6 lg:px-10 py-1.5">
         <a href={siteConfig.phoneHref} className="flex items-center gap-1.5 hover:text-clay-400 transition-colors">
           <PhoneIcon className="w-3.5 h-3.5" />
           {siteConfig.phone}
@@ -47,31 +84,35 @@ export default function Header() {
               href={link.href}
               className="text-sm font-medium text-charcoal-900 hover:text-clay-600 transition-colors"
             >
-              {link.label}
+              {t(`nav.${link.key}`)}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-4">
+          <LanguageSwitch />
           <Link
             href="/contact"
             className="inline-flex items-center rounded-full bg-clay-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-clay-600 transition-colors"
           >
-            Contactează-ne
+            {t("common.contactCta")}
           </Link>
         </div>
 
-        <button
-          type="button"
-          aria-label="Deschide meniul"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden flex flex-col gap-1.5 p-2"
-        >
-          <span className={`h-0.5 w-6 bg-navy-800 transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
-          <span className={`h-0.5 w-6 bg-navy-800 transition-opacity ${open ? "opacity-0" : ""}`} />
-          <span className={`h-0.5 w-6 bg-navy-800 transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`} />
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitch />
+          <button
+            type="button"
+            aria-label={t("common.menuOpen")}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="flex flex-col gap-1.5 p-2"
+          >
+            <span className={`h-0.5 w-6 bg-navy-800 transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
+            <span className={`h-0.5 w-6 bg-navy-800 transition-opacity ${open ? "opacity-0" : ""}`} />
+            <span className={`h-0.5 w-6 bg-navy-800 transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -83,7 +124,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
               className="text-base font-medium text-charcoal-900 hover:text-clay-600 transition-colors"
             >
-              {link.label}
+              {t(`nav.${link.key}`)}
             </Link>
           ))}
           <Link
@@ -91,7 +132,7 @@ export default function Header() {
             onClick={() => setOpen(false)}
             className="inline-flex items-center justify-center rounded-full bg-clay-500 px-5 py-2.5 text-sm font-semibold text-white"
           >
-            Contactează-ne
+            {t("common.contactCta")}
           </Link>
           <div className="pt-2 border-t border-cream-300 flex flex-col gap-2 text-sm text-charcoal-600">
             <a href={siteConfig.phoneHref} className="flex items-center gap-2">

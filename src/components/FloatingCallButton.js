@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/config/site";
 import { PhoneIcon } from "@/components/icons";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function FloatingCallButton() {
   const [show, setShow] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 480);
@@ -22,7 +24,7 @@ export default function FloatingCallButton() {
       }`}
     >
       <PhoneIcon className="w-4 h-4" />
-      <span className="font-semibold text-sm">Sună acum</span>
+      <span className="font-semibold text-sm">{t("common.callNow")}</span>
     </a>
   );
 }

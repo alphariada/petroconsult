@@ -8,14 +8,14 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  { label: "Despre Noi", href: "/despre-noi" },
-  { label: "Spații Disponibile", href: "/spatii-disponibile" },
-  { label: "Sala de Evenimente", href: "/sala-de-evenimente" },
-  { label: "Contact", href: "/contact" },
+  { key: "despreNoi", href: "/despre-noi" },
+  { key: "spatiiDisponibile", href: "/spatii-disponibile" },
+  { key: "salaEvenimente", href: "/sala-de-evenimente" },
+  { key: "contact", href: "/contact" },
 ];
 
 export const corpLinks = [
-  { label: "Corp C1A", href: "/corp/corp-c1a" },
-  { label: "Corp C1B", href: "/corp/corp-c1b" },
-  { label: "Corp C2", href: "/corp/corp-c2" },
+  { key: "corpC1A", href: "/corp/corp-c1a" },
+  { key: "corpC1B", href: "/corp/corp-c1b" },
+  { key: "corpC2", href: "/corp/corp-c2" },
 ];

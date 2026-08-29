@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 import { siteConfig } from "@/config/site";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const display = Manrope({
   variable: "--font-display",
@@ -58,10 +59,12 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingCallButton />
+        <LanguageProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingCallButton />
+        </LanguageProvider>
       </body>
     </html>
   );
