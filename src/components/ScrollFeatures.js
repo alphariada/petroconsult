@@ -36,7 +36,7 @@ function ImageStack({ items, active, sizes }) {
     <>
       {items.map((item, i) => (
         <div
-          key={item.title}
+          key={i}
           className={`absolute inset-0 transition-opacity duration-700 ${
             i === active ? "opacity-100" : "opacity-0"
           }`}
@@ -92,7 +92,7 @@ export default function ScrollFeatures({ eyebrow, title, items }) {
         <div className="flex flex-col">
           {items.map((item, i) => (
             <div
-              key={item.title}
+              key={i}
               data-index={i}
               className={`flex flex-col py-6 ${
                 i === 0
@@ -124,7 +124,7 @@ export default function ScrollFeatures({ eyebrow, title, items }) {
         <div className="flex flex-col">
           {items.map((item, i) => (
             <div
-              key={item.title}
+              key={i}
               data-index={i}
               className={`flex flex-col justify-center py-8 ${
                 i === 0 ? "min-h-screen" : "min-h-[65vh]"

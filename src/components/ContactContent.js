@@ -25,8 +25,8 @@ export default function ContactContent() {
 
       <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
         <Reveal delay={100} className="lg:col-span-2 space-y-6">
-          {infoItems.map((item) => (
-            <div key={item.label} className="flex items-start gap-4">
+          {infoItems.map((item, i) => (
+            <div key={i} className="flex items-start gap-4">
               <div className="w-11 h-11 shrink-0 rounded-xl bg-clay-100 text-clay-600 flex items-center justify-center">
                 <item.icon className="w-5 h-5" />
               </div>

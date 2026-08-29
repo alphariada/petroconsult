@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
@@ -33,13 +34,18 @@ const partners = [
 ];
 
 export default function HomeContent() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
-  const features = featureDefs.map((f) => ({
-    title: t(`home.features.${f.key}.title`),
-    desc: t(`home.features.${f.key}.desc`),
-    image: f.image,
-  }));
+  const features = useMemo(
+    () =>
+      featureDefs.map((f) => ({
+        title: t(`home.features.${f.key}.title`),
+        desc: t(`home.features.${f.key}.desc`),
+        image: f.image,
+      })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [locale]
+  );
 
   return (
     <>
@@ -131,9 +137,9 @@ export default function HomeContent() {
             {t("home.partnersLabel")}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-12">
-            {partners.map((p) => (
+            {partners.map((p, i) => (
               <Image
-                key={p.name}
+                key={i}
                 src={p.logo}
                 alt={p.name}
                 width={140}

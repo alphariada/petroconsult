@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
@@ -80,25 +81,40 @@ function TestimonialCard({ t }) {
 }
 
 export default function DespreNoiContent() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
-  const values = valueDefs.map((v) => ({
-    icon: v.icon,
-    title: t(`despreNoi.values.${v.key}.title`),
-    desc: t(`despreNoi.values.${v.key}.desc`),
-  }));
+  const values = useMemo(
+    () =>
+      valueDefs.map((v) => ({
+        icon: v.icon,
+        title: t(`despreNoi.values.${v.key}.title`),
+        desc: t(`despreNoi.values.${v.key}.desc`),
+      })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [locale]
+  );
 
-  const corpItems = corpDefs.map((c) => ({
-    title: t(`despreNoi.corpItems.${c.key}.title`),
-    desc: t(`despreNoi.corpItems.${c.key}.desc`),
-    image: c.image,
-  }));
+  const corpItems = useMemo(
+    () =>
+      corpDefs.map((c) => ({
+        title: t(`despreNoi.corpItems.${c.key}.title`),
+        desc: t(`despreNoi.corpItems.${c.key}.desc`),
+        image: c.image,
+      })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [locale]
+  );
 
-  const testimonials = testimonialDefs.map((item) => ({
-    quote: t(`despreNoi.testimonials.${item.key}.quote`),
-    name: t(`despreNoi.testimonials.${item.key}.name`),
-    logo: item.logo,
-  }));
+  const testimonials = useMemo(
+    () =>
+      testimonialDefs.map((item) => ({
+        quote: t(`despreNoi.testimonials.${item.key}.quote`),
+        name: t(`despreNoi.testimonials.${item.key}.name`),
+        logo: item.logo,
+      })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [locale]
+  );
 
   const heroFacts = t("despreNoi.heroFacts");
 
@@ -208,7 +224,7 @@ export default function DespreNoiContent() {
           </Reveal>
           <div className="hidden lg:grid lg:grid-cols-3 gap-6 lg:gap-8">
             {values.map((v, i) => (
-              <Reveal key={v.title} delay={i * 120}>
+              <Reveal key={i} delay={i * 120}>
                 <ValueCard v={v} />
               </Reveal>
             ))}
@@ -216,8 +232,8 @@ export default function DespreNoiContent() {
           <ScrollCardSwap
             eyebrow={t("despreNoi.diferentiazaEyebrow")}
             title={t("despreNoi.diferentiazaTitle")}
-            items={values.map((v) => (
-              <ValueCard key={v.title} v={v} />
+            items={values.map((v, i) => (
+              <ValueCard key={i} v={v} />
             ))}
           />
         </div>
@@ -235,7 +251,7 @@ export default function DespreNoiContent() {
 
         <div className="hidden lg:grid lg:grid-cols-3 gap-6 lg:gap-8">
           {corpItems.map((c, i) => (
-            <Reveal key={c.title} delay={i * 130}>
+            <Reveal key={i} delay={i * 130}>
               <CorpCard c={c} i={i} />
             </Reveal>
           ))}
@@ -244,7 +260,7 @@ export default function DespreNoiContent() {
           eyebrow={t("despreNoi.portofoliuEyebrow")}
           title={t("despreNoi.portofoliuTitle")}
           items={corpItems.map((c, i) => (
-            <CorpCard key={c.title} c={c} i={i} />
+            <CorpCard key={i} c={c} i={i} />
           ))}
         />
 
@@ -271,7 +287,7 @@ export default function DespreNoiContent() {
 
           <div className="hidden lg:grid lg:grid-cols-3 gap-6 mb-16">
             {testimonials.map((item, i) => (
-              <Reveal key={item.name} delay={i * 120}>
+              <Reveal key={i} delay={i * 120}>
                 <TestimonialCard t={item} />
               </Reveal>
             ))}
@@ -280,8 +296,8 @@ export default function DespreNoiContent() {
             eyebrow={t("despreNoi.companiiEyebrow")}
             title={t("despreNoi.companiiTitle")}
             dark
-            items={testimonials.map((item) => (
-              <TestimonialCard key={item.name} t={item} />
+            items={testimonials.map((item, i) => (
+              <TestimonialCard key={i} t={item} />
             ))}
           />
         </div>
