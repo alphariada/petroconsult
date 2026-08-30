@@ -142,6 +142,31 @@ const en = {
     finalCtaText:
       "Join the companies who chose their headquarters in the center of Ploiești. Let's find the right space for your business together.",
   },
+  salaEvenimente: {
+    metaTitle: "Event Hall",
+    metaDescription:
+      "Petroconsult Business Centre event hall, Block C1B, ground floor — a space for up to 150 people, suitable for conferences, training sessions and corporate events, in the center of Ploiești.",
+    heroEyebrow: "Event Hall · Block C1B",
+    heroTitle: "A modern hall for up to 150 people, in the heart of Ploiești",
+    heroText:
+      "Host conferences, training sessions and corporate events in a spacious, easily accessible venue on the ground floor of Block C1B at Petroconsult Business Centre.",
+    heroFacts: ["Up to 150 people", "Ground floor, Block C1B", "Step-free access", "Private parking included"],
+    introEyebrow: "About the hall",
+    introTitle: "The right space for your event",
+    introText:
+      "The Petroconsult event hall occupies the ground floor of Block C1B, in a complex fully renovated in 2024, right in the center of Ploiești. Its generous layout adapts to conferences, training sessions, product launches or large corporate gatherings.",
+    checklist: [
+      "Capacity of up to 150 people, configurable to fit your event",
+      "Direct, step-free access from the ground floor, suitable for any audience",
+      "Private parking for attendees, right in the complex's courtyard",
+      "Central location, easy to reach by public transport or by car",
+    ],
+    tipuriEyebrow: "Suitable for",
+    tipuriTitle: "What you can host in our hall",
+    tipuri: ["Conferences", "Training sessions", "Corporate events", "Product launches", "Seminars", "Presentations & workshops"],
+    finalCtaTitle: "Let's talk about your event",
+    finalCtaText: "Write or call us for availability, pricing and details about the event hall.",
+  },
   contact: {
     metaTitle: "Contact",
     metaDescription:

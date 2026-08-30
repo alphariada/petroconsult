@@ -142,6 +142,31 @@ const ro = {
     finalCtaText:
       "Alătură-te companiilor care și-au ales sediul în centrul Ploieștiului. Hai să găsim împreună spațiul potrivit pentru afacerea ta.",
   },
+  salaEvenimente: {
+    metaTitle: "Sala de Evenimente",
+    metaDescription:
+      "Sala de evenimente Petroconsult Business Centre, Corp C1B, parter — un spațiu pentru până la 150 de persoane, potrivit pentru conferințe, training-uri și evenimente corporate, în centrul Ploieștiului.",
+    heroEyebrow: "Sala de Evenimente · Corp C1B",
+    heroTitle: "O sală modernă pentru până la 150 de persoane, în inima Ploieștiului",
+    heroText:
+      "Organizează conferințe, training-uri și evenimente corporate într-un spațiu generos, ușor accesibil, la parterul Corpului C1B din Petroconsult Business Centre.",
+    heroFacts: ["Până la 150 de persoane", "Parter, Corp C1B", "Acces facil, fără trepte", "Parcare privată inclusă"],
+    introEyebrow: "Despre sală",
+    introTitle: "Spațiul potrivit pentru evenimentul tău",
+    introText:
+      "Sala de evenimente Petroconsult ocupă parterul Corpului C1B, într-un complex renovat integral în 2024, chiar în centrul Ploieștiului. Configurația generoasă permite adaptarea spațiului pentru conferințe, sesiuni de training, lansări sau întâlniri corporate de amploare.",
+    checklist: [
+      "Capacitate de până la 150 de persoane, configurabilă în funcție de tipul evenimentului",
+      "Acces direct de la parter, fără trepte, potrivit pentru orice tip de public",
+      "Parcare privată pentru participanți, chiar în curtea complexului",
+      "Locație centrală, ușor accesibilă cu transportul în comun sau auto",
+    ],
+    tipuriEyebrow: "Potrivită pentru",
+    tipuriTitle: "Ce poți organiza în sala noastră",
+    tipuri: ["Conferințe", "Training-uri", "Evenimente corporate", "Lansări de produse", "Seminarii", "Prezentări și workshop-uri"],
+    finalCtaTitle: "Hai să discutăm despre evenimentul tău",
+    finalCtaText: "Scrie-ne sau sună-ne pentru disponibilitate, tarife și detalii despre sala de evenimente.",
+  },
   contact: {
     metaTitle: "Contact",
     metaDescription:
