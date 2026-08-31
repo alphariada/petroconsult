@@ -5,58 +5,101 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 
-const IMAGE_WIDTH = 1870;
-const IMAGE_HEIGHT = 1252;
+const IMAGE_WIDTH = 1649;
+const IMAGE_HEIGHT = 1156;
 
 const corps = [
   {
     key: "corpC2",
     href: "/corp/corp-c2",
+    labelPos: [992, 236],
     points: [
-      [816, 166],
-      [1166, 309],
-      [1094, 483],
-      [744, 338],
+      [815, 73],
+      [1166, 213],
+      [1094, 387],
+      [742, 238],
     ],
   },
   {
     key: "corpC1B",
     href: "/corp/corp-c1b",
+    labelPos: [552, 694],
     points: [
-      [971, 1179],
-      [829, 1119],
-      [495, 884],
-      [86, 584],
-      [234, 420],
-      [628, 714],
-      [867, 885],
-      [1031, 954],
+      [912, 813],
+      [827, 1033],
+      [495, 788],
+      [86, 488],
+      [234, 324],
+      [627, 623],
     ],
   },
   {
     key: "corpC1A",
     href: "/corp/corp-c1a",
+    labelPos: [1245, 695],
     points: [
-      [1203, 606],
-      [1233, 538],
-      [1436, 586],
-      [1422, 660],
-      [1520, 693],
-      [1436, 1016],
-      [1133, 914],
-      [1036, 957],
-      [959, 921],
-      [893, 896],
-      [976, 596],
-      [1211, 669],
-      [1227, 614],
+      [1203, 510],
+      [1235, 430],
+      [1436, 490],
+      [1420, 562],
+      [1524, 591],
+      [1437, 922],
+      [1133, 818],
+      [1033, 864],
+      [968, 1081],
+      [828, 1033],
+      [913, 813],
+      [883, 794],
+      [976, 500],
+      [1212, 572],
+      [1232, 524],
     ],
   },
 ];
 
-function centroid(points) {
-  const [sx, sy] = points.reduce(([ax, ay], [x, y]) => [ax + x, ay + y], [0, 0]);
-  return [sx / points.length, sy / points.length];
+const areas = [
+  {
+    key: "curteInterioara",
+    labelPos: [769, 467],
+    points: [
+      [233, 323],
+      [628, 624],
+      [884, 793],
+      [975, 500],
+      [1212, 572],
+      [1232, 523],
+      [1203, 510],
+      [1235, 430],
+      [1094, 388],
+      [742, 238],
+      [709, 278],
+      [615, 226],
+      [626, 208],
+      [457, 132],
+      [397, 106],
+    ],
+  },
+  {
+    key: "parcareFata",
+    labelPos: [1254, 986],
+    points: [
+      [968, 1081],
+      [1033, 864],
+      [1133, 818],
+      [1453, 928],
+      [1433, 1042],
+      [1423, 1089],
+      [1227, 1109],
+    ],
+  },
+];
+
+function pointsAttr(points) {
+  return points.map((p) => p.join(",")).join(" ");
+}
+
+function pct(value, total) {
+  return `${(value / total) * 100}%`;
 }
 
 export default function InteractiveSiteMap() {
@@ -78,18 +121,35 @@ export default function InteractiveSiteMap() {
           className="object-cover select-none"
           sizes="(min-width: 1024px) 1100px, 100vw"
         />
+
         <svg
           viewBox={`0 0 ${IMAGE_WIDTH} ${IMAGE_HEIGHT}`}
           className="absolute inset-0 h-full w-full"
           role="group"
           aria-label={t("spatiiDisponibile.mapAriaLabel")}
         >
-          {corps.map((corp) => {
-            const [cx, cy] = centroid(corp.points);
-            const isHovered = hovered === corp.key;
-            const pointsAttr = corp.points.map((p) => p.join(",")).join(" ");
-            const label = t(`nav.${corp.key}`);
+          {areas.map((area) => {
+            const isHovered = hovered === area.key;
+            return (
+              <polygon
+                key={area.key}
+                aria-hidden="true"
+                onMouseEnter={() => setHovered(area.key)}
+                onMouseLeave={() => setHovered(null)}
+                points={pointsAttr(area.points)}
+                fill={isHovered ? "rgba(199,146,234,0.35)" : "rgba(255,255,255,0.06)"}
+                stroke={isHovered ? "#c792ea" : "rgba(255,255,255,0.55)"}
+                strokeWidth={isHovered ? 4 : 2}
+                strokeDasharray="10,7"
+                strokeLinejoin="round"
+                style={{ transition: "fill 380ms ease, stroke 380ms ease, stroke-width 380ms ease" }}
+              />
+            );
+          })}
 
+          {corps.map((corp) => {
+            const isHovered = hovered === corp.key;
+            const label = t(`nav.${corp.key}`);
             return (
               <g
                 key={corp.key}
@@ -114,7 +174,7 @@ export default function InteractiveSiteMap() {
                 }}
               >
                 <polygon
-                  points={pointsAttr}
+                  points={pointsAttr(corp.points)}
                   fill={isHovered ? "rgba(169,117,76,0.4)" : "rgba(32,29,87,0.1)"}
                   stroke={isHovered ? "#C08F63" : "rgba(255,255,255,0.8)"}
                   strokeWidth={isHovered ? 6 : 3}
@@ -126,29 +186,67 @@ export default function InteractiveSiteMap() {
                     transition: "fill 380ms ease, stroke 380ms ease, filter 380ms ease, stroke-width 380ms ease",
                   }}
                 />
-                <foreignObject
-                  x={cx - 120}
-                  y={cy - 24}
-                  width={240}
-                  height={48}
-                  style={{ overflow: "visible", pointerEvents: "none" }}
-                >
-                  <div className="flex items-center justify-center">
-                    <span
-                      className={`rounded-full border px-4 py-2 text-center font-display text-sm font-bold whitespace-nowrap shadow-lg transition-all duration-300 sm:text-base ${
-                        isHovered
-                          ? "-translate-y-1 scale-105 border-clay-400 bg-clay-500 text-white"
-                          : "border-cream-300 bg-white/95 text-navy-800"
-                      }`}
-                    >
-                      {label}
-                    </span>
-                  </div>
-                </foreignObject>
               </g>
             );
           })}
         </svg>
+
+        {/* Labels live outside the SVG on purpose: text inside an SVG viewBox scales down
+            with the image (often to a fraction of its CSS size on phones/laptops), so pills
+            are plain HTML positioned by percentage instead. */}
+        {areas.map((area) => {
+          const isHovered = hovered === area.key;
+          const label = t(`spatiiDisponibile.areas.${area.key}`);
+          return (
+            <div
+              key={area.key}
+              className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2"
+              style={{
+                left: pct(area.labelPos[0], IMAGE_WIDTH),
+                top: pct(area.labelPos[1], IMAGE_HEIGHT),
+                transform: `translate(-50%, -50%) translateY(${isHovered ? "-6px" : "0px"})`,
+                transition: "transform 380ms cubic-bezier(0.22, 1, 0.36, 1)",
+              }}
+            >
+              <span
+                className={`rounded-full border px-4 py-2 text-center font-display text-sm font-bold whitespace-nowrap shadow-lg transition-all duration-300 sm:px-5 sm:py-2.5 sm:text-base ${
+                  isHovered
+                    ? "scale-105 border-[#c792ea] bg-[#c792ea] text-white"
+                    : "border-white/50 bg-navy-950/55 text-white backdrop-blur-sm"
+                }`}
+              >
+                {label}
+              </span>
+            </div>
+          );
+        })}
+
+        {corps.map((corp) => {
+          const isHovered = hovered === corp.key;
+          const label = t(`nav.${corp.key}`);
+          return (
+            <div
+              key={corp.key}
+              className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2"
+              style={{
+                left: pct(corp.labelPos[0], IMAGE_WIDTH),
+                top: pct(corp.labelPos[1], IMAGE_HEIGHT),
+                transform: `translate(-50%, -50%) translateY(${isHovered ? "-14px" : "0px"})`,
+                transition: "transform 380ms cubic-bezier(0.22, 1, 0.36, 1)",
+              }}
+            >
+              <span
+                className={`rounded-full border px-5 py-2.5 text-center font-display text-base font-bold whitespace-nowrap shadow-lg transition-all duration-300 sm:px-6 sm:py-3 sm:text-lg ${
+                  isHovered
+                    ? "scale-105 border-clay-400 bg-clay-500 text-white"
+                    : "border-cream-300 bg-white/95 text-navy-800"
+                }`}
+              >
+                {label}
+              </span>
+            </div>
+          );
+        })}
       </div>
       <p className="mt-4 text-center text-sm text-charcoal-400">{t("spatiiDisponibile.mapHint")}</p>
     </div>

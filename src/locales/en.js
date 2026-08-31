@@ -177,6 +177,10 @@ const en = {
       "The complex is made up of three blocks — C1A, C1B and C2 — connected to each other and grouped around the same inner courtyard. Pick a block on the map to see its floors, plans and available offices.",
     mapHint: "Hover over a block and click to see its available spaces",
     mapAriaLabel: "Interactive map of the Petroconsult Business Centre blocks",
+    areas: {
+      curteInterioara: "Inner Courtyard",
+      parcareFata: "Parking",
+    },
     ctaTitle: "Can't find what you're looking for on the map?",
     ctaText: "Write or call us — we'll tell you exactly what's available right now, in every block.",
   },
