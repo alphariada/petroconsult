@@ -167,6 +167,19 @@ const ro = {
     finalCtaTitle: "Hai să discutăm despre evenimentul tău",
     finalCtaText: "Scrie-ne sau sună-ne pentru disponibilitate, tarife și detalii despre sala de evenimente.",
   },
+  spatiiDisponibile: {
+    metaTitle: "Spații Disponibile",
+    metaDescription:
+      "Explorează harta interactivă a ansamblului Petroconsult Business Centre — trei corpuri de clădire, peste 8.000 mp, în centrul Ploieștiului. Alege un corp pentru a vedea etajele și birourile disponibile.",
+    heroEyebrow: "Spații Disponibile",
+    heroTitle: "Explorează ansamblul Petroconsult Business Centre",
+    heroText:
+      "Complexul este format din trei corpuri — C1A, C1B și C2 — legate între ele și grupate în jurul aceleiași curți interioare. Alege un corp pe hartă pentru a vedea etajele, planurile și birourile disponibile.",
+    mapHint: "Treci cu mouse-ul peste un corp și dă click pentru a vedea spațiile disponibile",
+    mapAriaLabel: "Harta interactivă a corpurilor Petroconsult Business Centre",
+    ctaTitle: "Nu găsești ce cauți pe hartă?",
+    ctaText: "Scrie-ne sau sună-ne — îți spunem exact ce spații sunt disponibile chiar acum, în fiecare corp.",
+  },
   contact: {
     metaTitle: "Contact",
     metaDescription:
