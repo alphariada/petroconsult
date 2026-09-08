@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import Reveal from "@/components/Reveal";
 import StatCounter from "@/components/StatCounter";
 import ScrollFeatures from "@/components/ScrollFeatures";
+import { MapPinIcon } from "@/components/icons";
 import { useLanguage } from "@/context/LanguageContext";
 
 const statDefs = [
@@ -20,12 +21,6 @@ const featureDefs = [
   { key: "location", image: "/images/petroconsult-2.jpeg" },
   { key: "renovated", image: "/images/petroconsult-4.jpeg" },
   { key: "courtyard", image: "/images/petroconsult-6.jpeg" },
-];
-
-const corpThumbs = [
-  { key: "corpC1A", image: "/images/petroconsult-4.jpeg" },
-  { key: "corpC1B", image: "/images/petroconsult-10.jpeg" },
-  { key: "corpC2", image: "/images/petroconsult-1.jpeg" },
 ];
 
 const partners = [
@@ -166,15 +161,19 @@ export default function HomeContent() {
               {t("home.corpuriBtn")}
             </Link>
           </div>
-          <div className="grid grid-cols-3 gap-3">
-            {corpThumbs.map((c) => (
-              <div key={c.key} className="text-center">
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden mb-2">
-                  <Image src={c.image} alt={t(`nav.${c.key}`)} fill className="object-cover" />
-                </div>
-                <span className="text-cream-100/80 text-xs font-medium">{t(`nav.${c.key}`)}</span>
-              </div>
-            ))}
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
+            <Image
+              src="/images/map/ansamblu-satelit.webp"
+              alt="Harta interactivă a ansamblului Petroconsult Business Centre"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 via-transparent to-transparent" />
+            <span className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-navy-800 shadow-lg">
+              <MapPinIcon className="w-4 h-4 text-clay-600" />
+              {t("home.corpuriMapBadge")}
+            </span>
           </div>
         </Reveal>
       </section>

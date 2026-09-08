@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteConfig, navLinks } from "@/config/site";
 import { PhoneIcon, MailIcon } from "@/components/icons";
 import { useLanguage } from "@/context/LanguageContext";
@@ -45,6 +46,14 @@ function LanguageSwitch({ className = "" }) {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const { t } = useLanguage();
+  const pathname = usePathname();
+
+  const scrollToTopIfSamePage = (href) => (e) => {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-cream-100/95 backdrop-blur supports-[backdrop-filter]:bg-cream-100/80 border-b border-cream-300">
@@ -60,7 +69,7 @@ export default function Header() {
       </div>
 
       <div className="flex items-center justify-between px-6 lg:px-10 py-3">
-        <Link href="/" className="flex items-center gap-3 shrink-0">
+        <Link href="/" onClick={scrollToTopIfSamePage("/")} className="flex items-center gap-3 shrink-0">
           <Image
             src="/images/logo-transparent.png"
             alt="Petroconsult Business Centre"
@@ -82,6 +91,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={scrollToTopIfSamePage(link.href)}
               className="text-sm font-medium text-charcoal-900 hover:text-clay-600 transition-colors"
             >
               {t(`nav.${link.key}`)}
@@ -93,6 +103,7 @@ export default function Header() {
           <LanguageSwitch />
           <Link
             href="/contact"
+            onClick={scrollToTopIfSamePage("/contact")}
             className="inline-flex items-center rounded-full bg-clay-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-clay-600 transition-colors"
           >
             {t("common.contactCta")}
@@ -121,7 +132,10 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                setOpen(false);
+                scrollToTopIfSamePage(link.href)(e);
+              }}
               className="text-base font-medium text-charcoal-900 hover:text-clay-600 transition-colors"
             >
               {t(`nav.${link.key}`)}
@@ -129,7 +143,10 @@ export default function Header() {
           ))}
           <Link
             href="/contact"
-            onClick={() => setOpen(false)}
+            onClick={(e) => {
+              setOpen(false);
+              scrollToTopIfSamePage("/contact")(e);
+            }}
             className="inline-flex items-center justify-center rounded-full bg-clay-500 px-5 py-2.5 text-sm font-semibold text-white"
           >
             {t("common.contactCta")}

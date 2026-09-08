@@ -2,12 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteConfig, navLinks, corpLinks } from "@/config/site";
 import { PhoneIcon, MailIcon, MapPinIcon } from "@/components/icons";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+
+  const scrollToTopIfSamePage = (href) => (e) => {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <footer className="bg-navy-950 text-cream-100">
@@ -30,7 +39,11 @@ export default function Footer() {
           <ul className="space-y-2.5">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="text-sm text-cream-100/80 hover:text-white transition-colors">
+                <Link
+                  href={link.href}
+                  onClick={scrollToTopIfSamePage(link.href)}
+                  className="text-sm text-cream-100/80 hover:text-white transition-colors"
+                >
                   {t(`nav.${link.key}`)}
                 </Link>
               </li>
@@ -45,7 +58,11 @@ export default function Footer() {
           <ul className="space-y-2.5">
             {corpLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="text-sm text-cream-100/80 hover:text-white transition-colors">
+                <Link
+                  href={link.href}
+                  onClick={scrollToTopIfSamePage(link.href)}
+                  className="text-sm text-cream-100/80 hover:text-white transition-colors"
+                >
                   {t(`nav.${link.key}`)}
                 </Link>
               </li>
@@ -83,7 +100,11 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {t("footer.rights")}
           </p>
-          <Link href="/politica-de-confidentialitate" className="hover:text-white transition-colors">
+          <Link
+            href="/politica-de-confidentialitate"
+            onClick={scrollToTopIfSamePage("/politica-de-confidentialitate")}
+            className="hover:text-white transition-colors"
+          >
             {t("footer.privacyPolicy")}
           </Link>
         </div>

@@ -61,6 +61,7 @@ const ro = {
     corpuriText:
       "Complexul Petroconsult Business Centre este format din trei corpuri — C1A, C1B și C2 — fiecare cu planuri, suprafețe și etaje disponibile pentru închiriere.",
     corpuriBtn: "Vezi Spațiile Disponibile",
+    corpuriMapBadge: "Hartă interactivă",
     salaEyebrow: "Sala de evenimente",
     salaTitle: "Un spațiu pentru până la 150 de persoane",
     salaText:
@@ -108,20 +109,10 @@ const ro = {
     },
     portofoliuEyebrow: "Portofoliul nostru",
     portofoliuTitle: "Trei corpuri, un singur ansamblu de business",
-    corpItems: {
-      c1a: {
-        title: "Corp C1A",
-        desc: "Compus din Parter + 2 etaje + Mansardă, complet renovat și ocupat aproape în totalitate. Lift, finisaje moderne și un design funcțional, gândit pentru echipe care au nevoie de un sediu reprezentativ.",
-      },
-      c1b: {
-        title: "Corp C1B",
-        desc: "Demisol + Parter + 2 etaje + Mansardă, modernizat integral în 2024. Peste 4.000 mp de spații flexibile, cu lift nou, finisaje premium și iluminare LED — potrivite pentru birouri, showroom-uri sau sedii de firmă.",
-      },
-      c2: {
-        title: "Corp C2",
-        desc: "Amplasat în curtea interioară a complexului, oferă un mediu de lucru privat și liniștit, cu acces controlat și securitate — ideal pentru firme de consultanță și servicii financiare.",
-      },
-    },
+    portofoliuMapBadge: "Hartă interactivă",
+    portofoliuMapText:
+      "Complexul este format din trei corpuri — C1A, C1B și C2 — grupate în jurul aceleiași curți interioare. Explorează harta interactivă pentru a vedea etajele, planurile și birourile disponibile în fiecare corp.",
+    portofoliuMapBtn: "Explorează harta interactivă",
     companiiEyebrow: "Companii care ne-au ales",
     companiiTitle: "Încrederea celor care lucrează aici, în fiecare zi",
     testimonials: {
@@ -205,6 +196,14 @@ const ro = {
       sentText: "Îți răspundem cât mai curând posibil.",
       errorGeneric: "A apărut o eroare.",
     },
+  },
+  notFound: {
+    metaTitle: "Pagina nu a fost găsită",
+    eyebrow: "Eroare 404",
+    title: "Pagina pe care o cauți nu există",
+    text: "S-ar putea să fi fost mutată sau ștearsă, sau adresa a fost scrisă greșit. Hai să te ducem înapoi pe drumul cel bun.",
+    homeBtn: "Înapoi la pagina principală",
+    spatiiBtn: "Vezi Spațiile Disponibile",
   },
 };
 

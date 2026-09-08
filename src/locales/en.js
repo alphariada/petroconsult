@@ -61,6 +61,7 @@ const en = {
     corpuriText:
       "The Petroconsult Business Centre complex is made up of three blocks — C1A, C1B and C2 — each with floor plans, areas and floors available for rent.",
     corpuriBtn: "View Available Spaces",
+    corpuriMapBadge: "Interactive map",
     salaEyebrow: "Event hall",
     salaTitle: "A space for up to 150 people",
     salaText:
@@ -108,20 +109,10 @@ const en = {
     },
     portofoliuEyebrow: "Our portfolio",
     portofoliuTitle: "Three blocks, one business complex",
-    corpItems: {
-      c1a: {
-        title: "Block C1A",
-        desc: "Made up of Ground Floor + 2 floors + Attic, fully renovated and almost fully occupied. Elevator, modern finishes and a functional design, built for teams that need a representative headquarters.",
-      },
-      c1b: {
-        title: "Block C1B",
-        desc: "Basement + Ground Floor + 2 floors + Attic, fully modernized in 2024. Over 4,000 sqm of flexible space, with a new elevator, premium finishes and LED lighting — suitable for offices, showrooms or company headquarters.",
-      },
-      c2: {
-        title: "Block C2",
-        desc: "Located in the complex's inner courtyard, it offers a private and quiet work environment, with controlled access and security — ideal for consulting firms and financial services.",
-      },
-    },
+    portofoliuMapBadge: "Interactive map",
+    portofoliuMapText:
+      "The complex is made up of three blocks — C1A, C1B and C2 — grouped around the same inner courtyard. Explore the interactive map to see the floors, plans and available offices in each block.",
+    portofoliuMapBtn: "Explore the interactive map",
     companiiEyebrow: "Companies who chose us",
     companiiTitle: "The trust of those who work here, every day",
     testimonials: {
@@ -205,6 +196,14 @@ const en = {
       sentText: "We'll get back to you as soon as possible.",
       errorGeneric: "Something went wrong.",
     },
+  },
+  notFound: {
+    metaTitle: "Page Not Found",
+    eyebrow: "Error 404",
+    title: "The page you're looking for doesn't exist",
+    text: "It may have been moved or removed, or the address was mistyped. Let's get you back on track.",
+    homeBtn: "Back to homepage",
+    spatiiBtn: "View Available Spaces",
   },
 };
 

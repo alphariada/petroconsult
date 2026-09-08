@@ -28,6 +28,14 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    type: "website",
+    locale: "ro_RO",
+    siteName: "Petroconsult Business Centre",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 const localBusinessJsonLd = {

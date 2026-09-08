@@ -6,19 +6,13 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import Reveal from "@/components/Reveal";
 import ScrollCardSwap from "@/components/ScrollCardSwap";
-import { AwardIcon, TrendingUpIcon, UsersIcon, QuoteIcon } from "@/components/icons";
+import { AwardIcon, TrendingUpIcon, UsersIcon, QuoteIcon, MapPinIcon } from "@/components/icons";
 import { useLanguage } from "@/context/LanguageContext";
 
 const valueDefs = [
   { key: "experienta", icon: AwardIcon },
   { key: "investitie", icon: TrendingUpIcon },
   { key: "parteneriat", icon: UsersIcon },
-];
-
-const corpDefs = [
-  { key: "c1a", image: "/images/petroconsult-4.jpeg" },
-  { key: "c1b", image: "/images/petroconsult-10.jpeg" },
-  { key: "c2", image: "/images/petroconsult-1.jpeg" },
 ];
 
 const testimonialDefs = [
@@ -35,28 +29,6 @@ function ValueCard({ v }) {
       </div>
       <h3 className="font-display font-bold text-xl text-navy-800 mb-3">{v.title}</h3>
       <p className="text-charcoal-600 leading-relaxed">{v.desc}</p>
-    </div>
-  );
-}
-
-function CorpCard({ c, i }) {
-  return (
-    <div className="group h-full flex flex-col">
-      <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shrink-0">
-        <Image
-          src={c.image}
-          alt={c.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(min-width: 1024px) 33vw, 100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/10 to-transparent" />
-        <span className="absolute top-5 left-5 font-display font-extrabold text-4xl text-white/25">
-          0{i + 1}
-        </span>
-        <h3 className="absolute bottom-5 left-5 right-5 font-display font-bold text-2xl text-white">{c.title}</h3>
-      </div>
-      <p className="text-charcoal-600 leading-relaxed mt-5">{c.desc}</p>
     </div>
   );
 }
@@ -89,17 +61,6 @@ export default function DespreNoiContent() {
         icon: v.icon,
         title: t(`despreNoi.values.${v.key}.title`),
         desc: t(`despreNoi.values.${v.key}.desc`),
-      })),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [locale]
-  );
-
-  const corpItems = useMemo(
-    () =>
-      corpDefs.map((c) => ({
-        title: t(`despreNoi.corpItems.${c.key}.title`),
-        desc: t(`despreNoi.corpItems.${c.key}.desc`),
-        image: c.image,
       })),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [locale]
@@ -239,39 +200,40 @@ export default function DespreNoiContent() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 lg:px-10 py-20 sm:py-28">
-        <Reveal className="hidden lg:block max-w-2xl mb-14">
-          <p className="text-clay-600 font-semibold tracking-wide uppercase text-sm mb-3">
-            {t("despreNoi.portofoliuEyebrow")}
-          </p>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-navy-800">
-            {t("despreNoi.portofoliuTitle")}
-          </h2>
-        </Reveal>
+      <section className="max-w-6xl mx-auto px-6 lg:px-10 py-20 sm:py-28">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <Reveal className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl ring-1 ring-cream-300 order-2 lg:order-1">
+            <Image
+              src="/images/map/ansamblu-satelit.webp"
+              alt="Harta interactivă a ansamblului Petroconsult Business Centre"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 via-transparent to-transparent" />
+            <span className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-navy-800 shadow-lg">
+              <MapPinIcon className="w-4 h-4 text-clay-600" />
+              {t("despreNoi.portofoliuMapBadge")}
+            </span>
+          </Reveal>
 
-        <div className="hidden lg:grid lg:grid-cols-3 gap-6 lg:gap-8">
-          {corpItems.map((c, i) => (
-            <Reveal key={i} delay={i * 130}>
-              <CorpCard c={c} i={i} />
-            </Reveal>
-          ))}
+          <Reveal delay={150} className="order-1 lg:order-2">
+            <p className="text-clay-600 font-semibold tracking-wide uppercase text-sm mb-3">
+              {t("despreNoi.portofoliuEyebrow")}
+            </p>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-navy-800 mb-6">
+              {t("despreNoi.portofoliuTitle")}
+            </h2>
+            <p className="text-charcoal-600 leading-relaxed mb-8">{t("despreNoi.portofoliuMapText")}</p>
+            <Link
+              href="/spatii-disponibile"
+              className="inline-flex items-center gap-2 rounded-full bg-clay-500 hover:bg-clay-600 transition-colors px-7 py-3.5 font-semibold text-white"
+            >
+              {t("despreNoi.portofoliuMapBtn")}
+              <span aria-hidden>→</span>
+            </Link>
+          </Reveal>
         </div>
-        <ScrollCardSwap
-          eyebrow={t("despreNoi.portofoliuEyebrow")}
-          title={t("despreNoi.portofoliuTitle")}
-          items={corpItems.map((c, i) => (
-            <CorpCard key={i} c={c} i={i} />
-          ))}
-        />
-
-        <Reveal className="flex flex-wrap gap-4 mt-14">
-          <Link
-            href="/spatii-disponibile"
-            className="inline-flex items-center rounded-full bg-clay-500 hover:bg-clay-600 transition-colors px-7 py-3.5 font-semibold text-white"
-          >
-            {t("nav.spatiiDisponibile")}
-          </Link>
-        </Reveal>
       </section>
 
       <section className="bg-navy-950">
