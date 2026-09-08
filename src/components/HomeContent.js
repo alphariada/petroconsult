@@ -6,7 +6,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import Reveal from "@/components/Reveal";
 import StatCounter from "@/components/StatCounter";
-import ScrollFeatures from "@/components/ScrollFeatures";
+import ScrollCardSwap from "@/components/ScrollCardSwap";
 import { MapPinIcon } from "@/components/icons";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -27,6 +27,24 @@ const partners = [
   { name: "Shipo", logo: "/images/shipo-logo.png" },
   { name: "Site Salt", logo: "/images/site-salt-logo.png" },
 ];
+
+function FeatureCard({ f }) {
+  return (
+    <div className="group">
+      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-5 shadow-sm">
+        <Image
+          src={f.image}
+          alt={f.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(min-width: 1024px) 33vw, 100vw"
+        />
+      </div>
+      <h3 className="font-display font-bold text-xl text-navy-800 mb-2">{f.title}</h3>
+      <p className="text-charcoal-600 leading-relaxed">{f.desc}</p>
+    </div>
+  );
+}
 
 export default function HomeContent() {
   const { t, locale } = useLanguage();
@@ -121,8 +139,28 @@ export default function HomeContent() {
       </section>
 
       <section className="bg-cream-200 border-y border-cream-300">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10 sm:py-14">
-          <ScrollFeatures eyebrow={t("home.featuresEyebrow")} title={t("home.featuresTitle")} items={features} />
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20 sm:py-28">
+          <Reveal className="hidden lg:block text-center max-w-2xl mx-auto mb-14">
+            <p className="text-clay-600 font-semibold tracking-wide uppercase text-sm mb-3">
+              {t("home.featuresEyebrow")}
+            </p>
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-navy-800">{t("home.featuresTitle")}</h2>
+          </Reveal>
+
+          <div className="hidden lg:grid lg:grid-cols-3 gap-8 lg:gap-10">
+            {features.map((f, i) => (
+              <Reveal key={i} delay={i * 120}>
+                <FeatureCard f={f} />
+              </Reveal>
+            ))}
+          </div>
+          <ScrollCardSwap
+            eyebrow={t("home.featuresEyebrow")}
+            title={t("home.featuresTitle")}
+            items={features.map((f, i) => (
+              <FeatureCard key={i} f={f} />
+            ))}
+          />
         </div>
       </section>
 

@@ -51,6 +51,12 @@ export default function ScrollCardSwap({ eyebrow, title, items, dark = false }) 
     };
   }, [items.length]);
 
+  const goToSlide = (index) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollTo({ left: index * el.clientWidth, behavior: "smooth" });
+  };
+
   return (
     <div className="lg:hidden">
       <p
@@ -85,14 +91,18 @@ export default function ScrollCardSwap({ eyebrow, title, items, dark = false }) 
 
       <div className="flex items-center justify-center gap-2.5 mt-6">
         {items.map((_, i) => (
-          <span
+          <button
             key={i}
+            type="button"
+            onClick={() => goToSlide(i)}
+            aria-label={`${i + 1}/${items.length}`}
+            aria-current={i === active}
             className={`h-2.5 rounded-full transition-all duration-300 ${
               i === active
                 ? "w-8 bg-clay-500"
                 : dark
-                  ? "w-2.5 bg-white/30"
-                  : "w-2.5 bg-navy-800/25"
+                  ? "w-2.5 bg-white/30 hover:bg-white/50"
+                  : "w-2.5 bg-navy-800/25 hover:bg-navy-800/40"
             }`}
           />
         ))}
