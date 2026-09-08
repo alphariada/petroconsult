@@ -4,6 +4,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import Reveal from "@/components/Reveal";
 import InteractiveSiteMap from "@/components/InteractiveSiteMap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function SpatiiDisponibileContent() {
@@ -11,6 +12,8 @@ export default function SpatiiDisponibileContent() {
 
   return (
     <>
+      <Breadcrumbs items={[{ label: t("nav.spatiiDisponibile") }]} />
+
       <section className="max-w-3xl mx-auto px-6 lg:px-10 pt-16 pb-10 sm:pt-20 sm:pb-12 text-center">
         <Reveal>
           <p className="text-clay-600 font-semibold tracking-wide uppercase text-sm mb-3">

@@ -167,7 +167,7 @@ export default function InteractiveSiteMap() {
                     router.push(corp.href);
                   }
                 }}
-                className="cursor-pointer outline-none"
+                className="cursor-pointer outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-clay-500 focus-visible:outline-offset-4"
                 style={{
                   transform: isHovered ? "translateY(-14px)" : "translateY(0px)",
                   transition: "transform 380ms cubic-bezier(0.22, 1, 0.36, 1)",

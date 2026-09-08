@@ -2,6 +2,7 @@
 
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { PhoneIcon, MailIcon, MapPinIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/context/LanguageContext";
@@ -16,7 +17,9 @@ export default function ContactContent() {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto px-6 lg:px-10 py-16 sm:py-20">
+    <>
+      <Breadcrumbs items={[{ label: t("nav.contact") }]} />
+      <section className="max-w-6xl mx-auto px-6 lg:px-10 py-16 sm:py-20">
       <Reveal className="max-w-2xl mb-12">
         <p className="text-clay-600 font-semibold tracking-wide uppercase text-sm mb-3">{t("contact.eyebrow")}</p>
         <h1 className="font-display font-bold text-3xl sm:text-4xl text-navy-800 mb-4">{t("contact.title")}</h1>
@@ -48,6 +51,7 @@ export default function ContactContent() {
           <ContactForm />
         </Reveal>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

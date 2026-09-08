@@ -6,6 +6,7 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import Reveal from "@/components/Reveal";
 import ScrollCardSwap from "@/components/ScrollCardSwap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { AwardIcon, TrendingUpIcon, UsersIcon, QuoteIcon, MapPinIcon } from "@/components/icons";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -81,6 +82,8 @@ export default function DespreNoiContent() {
 
   return (
     <>
+      <Breadcrumbs items={[{ label: t("nav.despreNoi") }]} />
+
       <section className="relative bg-navy-950">
         <div className="absolute inset-0">
           <Image

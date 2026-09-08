@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import Reveal from "@/components/Reveal";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { CheckIcon } from "@/components/icons";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -16,6 +17,8 @@ export default function SalaEvenimenteContent() {
 
   return (
     <>
+      <Breadcrumbs items={[{ label: t("nav.salaEvenimente") }]} />
+
       <section className="relative bg-navy-950">
         <div className="absolute inset-0">
           <Image

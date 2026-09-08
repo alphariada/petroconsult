@@ -14,6 +14,10 @@ export default function StatCounter({ value, suffix = "", duration = 1400 }) {
       ([entry]) => {
         if (!entry.isIntersecting) return;
         observer.disconnect();
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          setDisplay(target);
+          return;
+        }
         const start = performance.now();
         const tick = (now) => {
           const progress = Math.min((now - start) / duration, 1);

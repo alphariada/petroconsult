@@ -3,18 +3,48 @@
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default function ContactForm() {
   const { t } = useLanguage();
   const [values, setValues] = useState({ name: "", email: "", phone: "", message: "" });
+  const [touched, setTouched] = useState({});
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [errorMsg, setErrorMsg] = useState("");
+
+  const fieldError = (field) => {
+    const value = values[field].trim();
+    if (field === "email") {
+      if (!value) return t("contact.form.fieldRequired");
+      if (!EMAIL_RE.test(value)) return t("contact.form.emailInvalid");
+      return null;
+    }
+    if (field === "name" || field === "message") {
+      return value ? null : t("contact.form.fieldRequired");
+    }
+    return null;
+  };
+
+  const errors = {
+    name: fieldError("name"),
+    email: fieldError("email"),
+    message: fieldError("message"),
+  };
+  const isValid = !errors.name && !errors.email && !errors.message;
 
   const handleChange = (e) => {
     setValues((v) => ({ ...v, [e.target.name]: e.target.value }));
   };
 
+  const handleBlur = (e) => {
+    setTouched((t) => ({ ...t, [e.target.name]: true }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setTouched({ name: true, email: true, message: true });
+    if (!isValid) return;
+
     setStatus("sending");
     setErrorMsg("");
     try {
@@ -27,6 +57,7 @@ export default function ContactForm() {
       if (!res.ok) throw new Error(data.error || t("contact.form.errorGeneric"));
       setStatus("sent");
       setValues({ name: "", email: "", phone: "", message: "" });
+      setTouched({});
     } catch (err) {
       setStatus("error");
       setErrorMsg(err.message);
@@ -42,48 +73,66 @@ export default function ContactForm() {
     );
   }
 
-  const inputClass =
-    "w-full rounded-xl border border-cream-300 bg-white px-4 py-3 text-charcoal-900 placeholder:text-charcoal-400 focus:outline-none focus:ring-2 focus:ring-clay-400 transition-shadow";
+  const fieldClass = (field) =>
+    `w-full rounded-xl border bg-white px-4 py-3 text-charcoal-900 placeholder:text-charcoal-400 focus:outline-none focus:ring-2 transition-shadow ${
+      touched[field] && errors[field]
+        ? "border-red-400 focus:ring-red-300"
+        : "border-cream-300 focus:ring-clay-400"
+    }`;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} noValidate className="space-y-4">
       <div className="grid sm:grid-cols-2 gap-4">
-        <input
-          type="text"
-          name="name"
-          value={values.name}
-          onChange={handleChange}
-          placeholder={t("contact.form.namePlaceholder")}
-          required
-          className={inputClass}
-        />
+        <div>
+          <input
+            type="text"
+            name="name"
+            value={values.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder={t("contact.form.namePlaceholder")}
+            aria-invalid={touched.name && !!errors.name}
+            className={fieldClass("name")}
+          />
+          {touched.name && errors.name && <p className="mt-1.5 text-xs text-red-600">{errors.name}</p>}
+        </div>
         <input
           type="tel"
           name="phone"
           value={values.phone}
           onChange={handleChange}
           placeholder={t("contact.form.phonePlaceholder")}
-          className={inputClass}
+          className={fieldClass("phone")}
         />
       </div>
-      <input
-        type="email"
-        name="email"
-        value={values.email}
-        onChange={handleChange}
-        placeholder={t("contact.form.emailPlaceholder")}
-        required
-        className={inputClass}
-      />
-      <textarea
-        name="message"
-        value={values.message}
-        onChange={handleChange}
-        placeholder={t("contact.form.messagePlaceholder")}
-        required
-        rows={4}
-        className={`${inputClass} resize-none`}
-      />
+
+      <div>
+        <input
+          type="email"
+          name="email"
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder={t("contact.form.emailPlaceholder")}
+          aria-invalid={touched.email && !!errors.email}
+          className={fieldClass("email")}
+        />
+        {touched.email && errors.email && <p className="mt-1.5 text-xs text-red-600">{errors.email}</p>}
+      </div>
+
+      <div>
+        <textarea
+          name="message"
+          value={values.message}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder={t("contact.form.messagePlaceholder")}
+          rows={4}
+          aria-invalid={touched.message && !!errors.message}
+          className={`${fieldClass("message")} resize-none`}
+        />
+        {touched.message && errors.message && <p className="mt-1.5 text-xs text-red-600">{errors.message}</p>}
+      </div>
 
       {status === "error" && <p className="text-sm text-red-600">{errorMsg}</p>}
 

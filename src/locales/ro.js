@@ -14,6 +14,8 @@ const ro = {
     callNow: "Sună acum",
     callPrefix: "Sună la",
     menuOpen: "Deschide meniul",
+    backToTop: "Înapoi sus",
+    home: "Acasă",
   },
   footer: {
     menu: "Meniu",
@@ -195,6 +197,8 @@ const ro = {
       sentTitle: "Mesaj trimis!",
       sentText: "Îți răspundem cât mai curând posibil.",
       errorGeneric: "A apărut o eroare.",
+      fieldRequired: "Acest câmp este obligatoriu.",
+      emailInvalid: "Adresa de email nu este validă.",
     },
   },
   notFound: {

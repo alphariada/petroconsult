@@ -14,6 +14,8 @@ const en = {
     callNow: "Call Now",
     callPrefix: "Call",
     menuOpen: "Open menu",
+    backToTop: "Back to top",
+    home: "Home",
   },
   footer: {
     menu: "Menu",
@@ -195,6 +197,8 @@ const en = {
       sentTitle: "Message sent!",
       sentText: "We'll get back to you as soon as possible.",
       errorGeneric: "Something went wrong.",
+      fieldRequired: "This field is required.",
+      emailInvalid: "This email address isn't valid.",
     },
   },
   notFound: {
