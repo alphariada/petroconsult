@@ -205,7 +205,7 @@ export default function HomeContent() {
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 via-transparent to-transparent" />
-            <span className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-7 py-3.5 font-semibold text-navy-800 shadow-lg">
+            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:top-auto lg:left-5 lg:bottom-5 lg:translate-x-0 lg:translate-y-0 inline-flex items-center gap-2 rounded-full bg-white/95 px-7 py-3.5 font-semibold text-navy-800 shadow-lg whitespace-nowrap">
               <MapPinIcon className="w-5 h-5 text-clay-600" />
               {t("home.corpuriMapBadge")}
               <span aria-hidden>→</span>
