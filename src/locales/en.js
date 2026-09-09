@@ -4,9 +4,9 @@ const en = {
     spatiiDisponibile: "Available Spaces",
     salaEvenimente: "Event Hall",
     contact: "Contact",
-    corpC1A: "Block C1A",
-    corpC1B: "Block C1B",
-    corpC2: "Block C2",
+    corpC1A: "Wing C1A",
+    corpC1B: "Wing C1B",
+    corpC2: "Wing C2",
   },
   common: {
     tagline: "Thinking and investing in the future!",
@@ -19,7 +19,7 @@ const en = {
   },
   footer: {
     menu: "Menu",
-    corpuriCladirii: "Blocks",
+    corpuriCladirii: "Wings",
     contact: "Contact",
     rights: "Petroconsult Business Centre. All rights reserved.",
     privacyPolicy: "Privacy Policy",
@@ -27,12 +27,12 @@ const en = {
   home: {
     heroEyebrow: "Petroconsult Business Centre · Ploiești",
     heroSubtitle:
-      "Modern office spaces, renovated in 2024, in the center of Ploiești. Three blocks, over 8,000 sqm, ready for your business.",
+      "Modern office spaces, renovated in 2024, in the center of Ploiești. Three wings, over 8,000 sqm, ready for your business.",
     spatiiDisponibileBtn: "Available Spaces",
     despreNoiBtn: "About Us",
     stats: {
       totalArea: "total area",
-      corpuri: "blocks",
+      corpuri: "wings",
       renovare: "fully renovated",
       saleEvenimente: "people, event hall",
     },
@@ -50,7 +50,7 @@ const en = {
       },
       renovated: {
         title: "Fully renovated spaces",
-        desc: "Blocks modernized in 2024, with premium finishes, air conditioning, central heating, high-speed internet and an elevator — ready to host any type of activity.",
+        desc: "Wings modernized in 2024, with premium finishes, air conditioning, central heating, high-speed internet and an elevator — ready to host any type of activity.",
       },
       courtyard: {
         title: "Inner courtyard & private parking",
@@ -58,15 +58,15 @@ const en = {
       },
     },
     partnersLabel: "Companies operating at Petroconsult Business Centre",
-    corpuriEyebrow: "Blocks",
-    corpuriTitle: "Three blocks, one address",
+    corpuriEyebrow: "Wings",
+    corpuriTitle: "Three wings, one address",
     corpuriText:
-      "The Petroconsult Business Centre complex is made up of three blocks — C1A, C1B and C2 — each with floor plans, areas and floors available for rent.",
+      "The Petroconsult Business Centre complex is made up of three wings — C1A, C1B and C2 — each with floor plans, areas and floors available for rent.",
     corpuriMapBadge: "View interactive map",
     salaEyebrow: "Event hall",
     salaTitle: "A space for up to 150 people",
     salaText:
-      "Host conferences, training sessions or corporate events in our hall in Block C1B, on the ground floor — a flexible, easily accessible space, suitable for large-scale events.",
+      "Host conferences, training sessions or corporate events in our hall in Wing C1B, on the ground floor — a flexible, easily accessible space, suitable for large-scale events.",
     salaLink: "Details about the event hall",
     ctaTitle: "Let's find the right space for your business",
     ctaText:
@@ -82,14 +82,14 @@ const en = {
       "SC Petroconsult Invest SRL is part of the Petroconsult Group — one of the first Romanian companies founded after the Revolution. For over three decades, we've been constantly investing in the rehabilitation and modernization of our real estate portfolio in the center of Ploiești.",
     heroFacts: [
       "8,000 sqm managed",
-      "3 blocks",
+      "3 wings",
       "fully renovated in 2024",
       "protocol office for 20 people",
     ],
     cineSuntemEyebrow: "Who we are",
     cineSuntemTitle: "The former IPIP SA headquarters, reinvented for today's businesses",
     p1: "SC Petroconsult Invest SRL is part of the Petroconsult group, one of the first companies founded in Romania after the Revolution. Since then, the company has grown steadily, investing continuously in the rehabilitation of its properties.",
-    p2: "The building at 18 Diligenței St. — the former headquarters of IPIP SA — has, through successive rehabilitations, become one of the landmark addresses of Ploiești. Today it houses Petroconsult Business Centre: three blocks, over 8,000 sqm of modern space, right in the city center.",
+    p2: "The building at 18 Diligenței St. — the former headquarters of IPIP SA — has, through successive rehabilitations, become one of the landmark addresses of Ploiești. Today it houses Petroconsult Business Centre: three wings, over 8,000 sqm of modern space, right in the city center.",
     p3: "Reception with 24/7 secured access, private parking with a barrier, a kitchen and modern common areas, plus a protocol office for up to 20 people — all designed for companies that want a representative headquarters. We offer for rent offices, spaces for consulting firms, IT, financial services and other commercial activities, in a dynamic business environment, right in the center of Ploiești.",
     planuriLink: "See available floor plans",
     diferentiazaEyebrow: "What sets us apart",
@@ -109,10 +109,10 @@ const en = {
       },
     },
     portofoliuEyebrow: "Our portfolio",
-    portofoliuTitle: "Three blocks, one business complex",
+    portofoliuTitle: "Three wings, one business complex",
     portofoliuMapBadge: "View interactive map",
     portofoliuMapText:
-      "The complex is made up of three blocks — C1A, C1B and C2 — grouped around the same inner courtyard. Explore the interactive map to see the floors, plans and available offices in each block.",
+      "The complex is made up of three wings — C1A, C1B and C2 — grouped around the same inner courtyard. Explore the interactive map to see the floors, plans and available offices in each wing.",
     companiiEyebrow: "Companies who chose us",
     companiiTitle: "The trust of those who work here, every day",
     testimonials: {
@@ -136,16 +136,16 @@ const en = {
   salaEvenimente: {
     metaTitle: "Event Hall",
     metaDescription:
-      "Petroconsult Business Centre event hall, Block C1B, ground floor — a space for up to 150 people, suitable for conferences, training sessions and corporate events, in the center of Ploiești.",
-    heroEyebrow: "Event Hall · Block C1B",
+      "Petroconsult Business Centre event hall, Wing C1B, ground floor — a space for up to 150 people, suitable for conferences, training sessions and corporate events, in the center of Ploiești.",
+    heroEyebrow: "Event Hall · Wing C1B",
     heroTitle: "A modern hall for up to 150 people, in the heart of Ploiești",
     heroText:
-      "Host conferences, training sessions and corporate events in a spacious, easily accessible venue on the ground floor of Block C1B at Petroconsult Business Centre.",
-    heroFacts: ["Up to 150 people", "Ground floor, Block C1B", "Step-free access", "Private parking included"],
+      "Host conferences, training sessions and corporate events in a spacious, easily accessible venue on the ground floor of Wing C1B at Petroconsult Business Centre.",
+    heroFacts: ["Up to 150 people", "Ground floor, Wing C1B", "Step-free access", "Private parking included"],
     introEyebrow: "About the hall",
     introTitle: "The right space for your event",
     introText:
-      "The Petroconsult event hall occupies the ground floor of Block C1B, in a complex fully renovated in 2024, right in the center of Ploiești. Its generous layout adapts to conferences, training sessions, product launches or large corporate gatherings.",
+      "The Petroconsult event hall occupies the ground floor of Wing C1B, in a complex fully renovated in 2024, right in the center of Ploiești. Its generous layout adapts to conferences, training sessions, product launches or large corporate gatherings.",
     checklist: [
       "Capacity of up to 150 people, configurable to fit your event",
       "Direct, step-free access from the ground floor, suitable for any audience",
@@ -161,19 +161,19 @@ const en = {
   spatiiDisponibile: {
     metaTitle: "Available Spaces",
     metaDescription:
-      "Explore the interactive map of the Petroconsult Business Centre complex — three blocks, over 8,000 sqm, in the center of Ploiești. Pick a block to see available floors and offices.",
+      "Explore the interactive map of the Petroconsult Business Centre complex — three wings, over 8,000 sqm, in the center of Ploiești. Pick a wing to see available floors and offices.",
     heroEyebrow: "Available Spaces",
     heroTitle: "Explore the Petroconsult Business Centre complex",
     heroText:
-      "The complex is made up of three blocks — C1A, C1B and C2 — connected to each other and grouped around the same inner courtyard. Pick a block on the map to see its floors, plans and available offices.",
-    mapHint: "Tap a block to see its available spaces",
-    mapAriaLabel: "Interactive map of the Petroconsult Business Centre blocks",
+      "The complex is made up of three wings — C1A, C1B and C2 — connected to each other and grouped around the same inner courtyard. Pick a wing on the map to see its floors, plans and available offices.",
+    mapHint: "Tap a wing to see its available spaces",
+    mapAriaLabel: "Interactive map of the Petroconsult Business Centre wings",
     areas: {
       curteInterioara: "Inner Courtyard",
       parcareFata: "Parking",
     },
     ctaTitle: "Can't find what you're looking for on the map?",
-    ctaText: "Write or call us — we'll tell you exactly what's available right now, in every block.",
+    ctaText: "Write or call us — we'll tell you exactly what's available right now, in every wing.",
   },
   contact: {
     metaTitle: "Contact",
@@ -203,20 +203,20 @@ const en = {
     floorsEyebrow: "Floors",
     floorsTitle: "Floors & available spaces",
     viewMapBtn: "View interactive map",
-    otherCorpuriLabel: "See the other blocks",
+    otherCorpuriLabel: "See the other wings",
     availableBadge: "Available",
     c1a: {
       metaDescription:
-        "Block C1A, Petroconsult Business Centre — P+2+M, recently renovated, inside the complex in the center of Ploiești. See its floors and space availability.",
-      heroEyebrow: "Block C1A · Petroconsult Business Centre",
-      heroTitle: "A renovated block, at the heart of the complex",
+        "Wing C1A, Petroconsult Business Centre — P+2+M, recently renovated, inside the complex in the center of Ploiești. See its floors and space availability.",
+      heroEyebrow: "Wing C1A · Petroconsult Business Centre",
+      heroTitle: "A renovated wing, at the heart of the complex",
       heroText:
-        "Block C1A, inside the Petroconsult Business Centre complex, has been recently renovated and offers available spaces for rent.",
+        "Wing C1A, inside the Petroconsult Business Centre complex, has been recently renovated and offers available spaces for rent.",
       heroFacts: ["P+2+M", "Recently renovated", "Modern elevator", "Available spaces"],
-      introEyebrow: "About this block",
+      introEyebrow: "About this wing",
       introTitle: "Modern finishes, functional design",
       introText:
-        "Block C1A, inside the Petroconsult Business Centre complex, consists of a ground floor, two upper floors and an attic (P+2+M). Recently renovated, the block offers available spaces for rent. It has an elevator, modern finishes and a functional design, adapted to tenants' needs — a comfortable, efficient environment for commercial or office activities.",
+        "Wing C1A, inside the Petroconsult Business Centre complex, consists of a ground floor, two upper floors and an attic (P+2+M). Recently renovated, the wing offers available spaces for rent. It has an elevator, modern finishes and a functional design, adapted to tenants' needs — a comfortable, efficient environment for commercial or office activities.",
       floors: [
         {
           title: "Attic",
@@ -238,16 +238,16 @@ const en = {
     },
     c1b: {
       metaDescription:
-        "Block C1B, Petroconsult Business Centre — D+P+2+M, over 4,000 sqm, fully renovated in 2024, in the center of Ploiești. See its floors and space availability.",
-      heroEyebrow: "Block C1B · Petroconsult Business Centre",
+        "Wing C1B, Petroconsult Business Centre — D+P+2+M, over 4,000 sqm, fully renovated in 2024, in the center of Ploiești. See its floors and space availability.",
+      heroEyebrow: "Wing C1B · Petroconsult Business Centre",
       heroTitle: "Over 4,000 sqm of modern space, fully renovated in 2024",
       heroText:
-        "Block C1B, inside the Petroconsult Business Centre complex, offers spacious, flexible areas, ideal for offices, company headquarters or showrooms.",
+        "Wing C1B, inside the Petroconsult Business Centre complex, offers spacious, flexible areas, ideal for offices, company headquarters or showrooms.",
       heroFacts: ["D+P+2+M", "Fully renovated in 2024", "4,000+ sqm", "New elevator"],
-      introEyebrow: "About this block",
-      introTitle: "A block fully renovated in 2024",
+      introEyebrow: "About this wing",
+      introTitle: "A wing fully renovated in 2024",
       introText:
-        "Block C1B, inside the Petroconsult Business Centre complex, consists of a basement, ground floor, two upper floors and an attic (D+P+2+M). Fully renovated in 2024, it offers over 4,000 sqm of modern, flexible spaces — ideal for offices, company headquarters, showrooms or other commercial activities.",
+        "Wing C1B, inside the Petroconsult Business Centre complex, consists of a basement, ground floor, two upper floors and an attic (D+P+2+M). Fully renovated in 2024, it offers over 4,000 sqm of modern, flexible spaces — ideal for offices, company headquarters, showrooms or other commercial activities.",
       features: [
         "Fully modernized building in 2024",
         "New elevator, making access between floors easier",
@@ -281,13 +281,13 @@ const en = {
     },
     c2: {
       metaDescription:
-        "Block C2, Petroconsult Business Centre — modern spaces in the complex's inner courtyard, in the center of Ploiești. See its floors and space availability.",
-      heroEyebrow: "Block C2 · Petroconsult Business Centre",
+        "Wing C2, Petroconsult Business Centre — modern spaces in the complex's inner courtyard, in the center of Ploiești. See its floors and space availability.",
+      heroEyebrow: "Wing C2 · Petroconsult Business Centre",
       heroTitle: "Exclusive spaces, in the complex's inner courtyard",
       heroText:
-        "Block C2 offers modern spaces for rent in the inner courtyard of the Petroconsult Business Centre complex, right in the center of Ploiești.",
+        "Wing C2 offers modern spaces for rent in the inner courtyard of the Petroconsult Business Centre complex, right in the center of Ploiești.",
       heroFacts: ["Complex's inner courtyard", "Controlled access", "Available spaces"],
-      introEyebrow: "About this block",
+      introEyebrow: "About this wing",
       introTitle: "A private, quiet business environment",
       introText:
         "We offer for rent modern spaces in Building C2, part of the Petroconsult Business Centre complex, located in the complex's inner courtyard, in the center of Ploiești. An exclusive location with a dynamic business environment, ideal for offices, consulting firms, financial services or other commercial activities.",
