@@ -62,7 +62,6 @@ const ro = {
     corpuriTitle: "Trei corpuri, o singură adresă",
     corpuriText:
       "Complexul Petroconsult Business Centre este format din trei corpuri — C1A, C1B și C2 — fiecare cu planuri, suprafețe și etaje disponibile pentru închiriere.",
-    corpuriBtn: "Vezi Spațiile Disponibile",
     corpuriMapBadge: "Vezi harta interactivă",
     salaEyebrow: "Sala de evenimente",
     salaTitle: "Un spațiu pentru până la 150 de persoane",
@@ -114,7 +113,6 @@ const ro = {
     portofoliuMapBadge: "Vezi harta interactivă",
     portofoliuMapText:
       "Complexul este format din trei corpuri — C1A, C1B și C2 — grupate în jurul aceleiași curți interioare. Explorează harta interactivă pentru a vedea etajele, planurile și birourile disponibile în fiecare corp.",
-    portofoliuMapBtn: "Explorează harta interactivă",
     companiiEyebrow: "Companii care ne-au ales",
     companiiTitle: "Încrederea celor care lucrează aici, în fiecare zi",
     testimonials: {

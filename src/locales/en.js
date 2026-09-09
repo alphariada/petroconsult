@@ -62,7 +62,6 @@ const en = {
     corpuriTitle: "Three blocks, one address",
     corpuriText:
       "The Petroconsult Business Centre complex is made up of three blocks — C1A, C1B and C2 — each with floor plans, areas and floors available for rent.",
-    corpuriBtn: "View Available Spaces",
     corpuriMapBadge: "View interactive map",
     salaEyebrow: "Event hall",
     salaTitle: "A space for up to 150 people",
@@ -114,7 +113,6 @@ const en = {
     portofoliuMapBadge: "View interactive map",
     portofoliuMapText:
       "The complex is made up of three blocks — C1A, C1B and C2 — grouped around the same inner courtyard. Explore the interactive map to see the floors, plans and available offices in each block.",
-    portofoliuMapBtn: "Explore the interactive map",
     companiiEyebrow: "Companies who chose us",
     companiiTitle: "The trust of those who work here, every day",
     testimonials: {

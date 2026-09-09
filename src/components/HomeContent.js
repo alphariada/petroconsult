@@ -191,13 +191,7 @@ export default function HomeContent() {
               {t("home.corpuriEyebrow")}
             </p>
             <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mb-5">{t("home.corpuriTitle")}</h2>
-            <p className="text-cream-100/75 leading-relaxed mb-8 max-w-md">{t("home.corpuriText")}</p>
-            <Link
-              href="/spatii-disponibile"
-              className="inline-flex items-center rounded-full bg-clay-500 hover:bg-clay-600 transition-colors px-7 py-3.5 font-semibold text-white"
-            >
-              {t("home.corpuriBtn")}
-            </Link>
+            <p className="text-cream-100/75 leading-relaxed max-w-md">{t("home.corpuriText")}</p>
           </div>
           <Link
             href="/spatii-disponibile"
@@ -211,8 +205,8 @@ export default function HomeContent() {
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 via-transparent to-transparent" />
-            <span className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-navy-800 shadow-lg">
-              <MapPinIcon className="w-4 h-4 text-clay-600" />
+            <span className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-7 py-3.5 font-semibold text-navy-800 shadow-lg">
+              <MapPinIcon className="w-5 h-5 text-clay-600" />
               {t("home.corpuriMapBadge")}
               <span aria-hidden>→</span>
             </span>
