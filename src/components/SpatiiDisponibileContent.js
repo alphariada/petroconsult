@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import Reveal from "@/components/Reveal";
@@ -30,7 +31,9 @@ export default function SpatiiDisponibileContent() {
 
       <section className="max-w-6xl mx-auto px-6 lg:px-10 pb-20 sm:pb-28">
         <Reveal delay={100}>
-          <InteractiveSiteMap />
+          <Suspense fallback={null}>
+            <InteractiveSiteMap />
+          </Suspense>
         </Reveal>
       </section>
 
