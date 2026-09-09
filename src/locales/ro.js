@@ -166,7 +166,7 @@ const ro = {
     heroTitle: "Explorează ansamblul Petroconsult Business Centre",
     heroText:
       "Complexul este format din trei corpuri — C1A, C1B și C2 — legate între ele și grupate în jurul aceleiași curți interioare. Alege un corp pe hartă pentru a vedea etajele, planurile și birourile disponibile.",
-    mapHint: "Treci cu mouse-ul peste un corp și dă click pentru a vedea spațiile disponibile",
+    mapHint: "Apasă pe un corp pentru a vedea spațiile disponibile",
     mapAriaLabel: "Harta interactivă a corpurilor Petroconsult Business Centre",
     areas: {
       curteInterioara: "Curte interioară",
