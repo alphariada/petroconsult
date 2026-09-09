@@ -205,19 +205,25 @@ export default function DespreNoiContent() {
 
       <section className="max-w-6xl mx-auto px-6 lg:px-10 py-20 sm:py-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <Reveal className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl ring-1 ring-cream-300 order-2 lg:order-1">
-            <Image
-              src="/images/map/ansamblu-satelit.webp"
-              alt="Harta interactivă a ansamblului Petroconsult Business Centre"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 via-transparent to-transparent" />
-            <span className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-navy-800 shadow-lg">
-              <MapPinIcon className="w-4 h-4 text-clay-600" />
-              {t("despreNoi.portofoliuMapBadge")}
-            </span>
+          <Reveal className="order-2 lg:order-1">
+            <Link
+              href="/spatii-disponibile"
+              className="group relative block aspect-[4/3] rounded-2xl overflow-hidden shadow-xl ring-1 ring-cream-300"
+            >
+              <Image
+                src="/images/map/ansamblu-satelit.webp"
+                alt="Harta interactivă a ansamblului Petroconsult Business Centre"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 via-transparent to-transparent" />
+              <span className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-navy-800 shadow-lg">
+                <MapPinIcon className="w-4 h-4 text-clay-600" />
+                {t("despreNoi.portofoliuMapBadge")}
+                <span aria-hidden>→</span>
+              </span>
+            </Link>
           </Reveal>
 
           <Reveal delay={150} className="order-1 lg:order-2">

@@ -199,20 +199,24 @@ export default function HomeContent() {
               {t("home.corpuriBtn")}
             </Link>
           </div>
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
+          <Link
+            href="/spatii-disponibile"
+            className="group relative block aspect-[4/3] rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10"
+          >
             <Image
               src="/images/map/ansamblu-satelit.webp"
               alt="Harta interactivă a ansamblului Petroconsult Business Centre"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 via-transparent to-transparent" />
             <span className="absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-navy-800 shadow-lg">
               <MapPinIcon className="w-4 h-4 text-clay-600" />
               {t("home.corpuriMapBadge")}
+              <span aria-hidden>→</span>
             </span>
-          </div>
+          </Link>
         </Reveal>
       </section>
 

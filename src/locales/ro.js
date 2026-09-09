@@ -63,7 +63,7 @@ const ro = {
     corpuriText:
       "Complexul Petroconsult Business Centre este format din trei corpuri — C1A, C1B și C2 — fiecare cu planuri, suprafețe și etaje disponibile pentru închiriere.",
     corpuriBtn: "Vezi Spațiile Disponibile",
-    corpuriMapBadge: "Hartă interactivă",
+    corpuriMapBadge: "Vezi harta interactivă",
     salaEyebrow: "Sala de evenimente",
     salaTitle: "Un spațiu pentru până la 150 de persoane",
     salaText:
@@ -111,7 +111,7 @@ const ro = {
     },
     portofoliuEyebrow: "Portofoliul nostru",
     portofoliuTitle: "Trei corpuri, un singur ansamblu de business",
-    portofoliuMapBadge: "Hartă interactivă",
+    portofoliuMapBadge: "Vezi harta interactivă",
     portofoliuMapText:
       "Complexul este format din trei corpuri — C1A, C1B și C2 — grupate în jurul aceleiași curți interioare. Explorează harta interactivă pentru a vedea etajele, planurile și birourile disponibile în fiecare corp.",
     portofoliuMapBtn: "Explorează harta interactivă",
@@ -199,6 +199,120 @@ const ro = {
       errorGeneric: "A apărut o eroare.",
       fieldRequired: "Acest câmp este obligatoriu.",
       emailInvalid: "Adresa de email nu este validă.",
+    },
+  },
+  corp: {
+    floorsEyebrow: "Etaje",
+    floorsTitle: "Etaje și spații disponibile",
+    viewMapBtn: "Vezi harta interactivă",
+    otherCorpuriLabel: "Vezi și celelalte corpuri",
+    availableBadge: "Disponibil",
+    c1a: {
+      metaDescription:
+        "Corp C1A, Petroconsult Business Centre — P+2+M, recent renovat, în interiorul ansamblului din centrul Ploieștiului. Vezi etajele și disponibilitatea spațiilor.",
+      heroEyebrow: "Corp C1A · Petroconsult Business Centre",
+      heroTitle: "Un corp de clădire renovat, în inima complexului",
+      heroText:
+        "Corpul C1A, situat în interiorul ansamblului Petroconsult Business Centre, este recent renovat și oferă spații de închiriat disponibile.",
+      heroFacts: ["P+2+M", "Renovat recent", "Lift modern", "Spații disponibile"],
+      introEyebrow: "Despre acest corp",
+      introTitle: "Finisaje moderne, design funcțional",
+      introText:
+        "Corpul de clădire C1A, situat în interiorul ansamblului Petroconsult Business Centre, este compus din parter, două etaje și mansardă (P+2+M). Recent renovat, corpul oferă spații de închiriat disponibile. Dispune de lift, finisaje moderne și un design funcțional, adaptat nevoilor chiriașilor — un mediu confortabil și eficient pentru activități comerciale sau de birouri.",
+      floors: [
+        {
+          title: "Mansardă",
+          desc: "Un spațiu elegant, cu un design modern, ideal pentru birouri premium, studio de creație sau alte activități care necesită un ambient special.",
+        },
+        {
+          title: "Etaj 2",
+          desc: "Spații flexibile, potrivite pentru birouri creative, coworking sau activități educaționale.",
+        },
+        {
+          title: "Etaj 1",
+          desc: "Spații de birouri compartimentate, ideale pentru echipe mari sau mici.",
+        },
+        {
+          title: "Parter",
+          desc: "Perfect pentru showroom, recepție sau activități comerciale — vizibilitate excelentă și acces direct din stradă.",
+        },
+      ],
+    },
+    c1b: {
+      metaDescription:
+        "Corp C1B, Petroconsult Business Centre — D+P+2+M, peste 4.000 mp, complet renovat în 2024, în centrul Ploieștiului. Vezi etajele și disponibilitatea spațiilor.",
+      heroEyebrow: "Corp C1B · Petroconsult Business Centre",
+      heroTitle: "Peste 4.000 mp de spații moderne, renovate integral în 2024",
+      heroText:
+        "Corpul C1B, situat în interiorul ansamblului Petroconsult Business Centre, oferă spații generoase și flexibile, ideale pentru birouri, sedii de firme sau showroom-uri.",
+      heroFacts: ["D+P+2+M", "Renovat integral în 2024", "4.000+ mp", "Lift nou"],
+      introEyebrow: "Despre acest corp",
+      introTitle: "Un corp de clădire complet renovat în 2024",
+      introText:
+        "Corpul de clădire C1B, situat în interiorul ansamblului Petroconsult Business Centre, este compus din demisol, parter, două etaje și mansardă (D+P+2+M). Complet renovat în 2024, oferă peste 4.000 mp de spații moderne și flexibile — ideale pentru birouri, sedii de firme, showroom-uri sau alte activități comerciale.",
+      features: [
+        "Clădire modernizată integral în 2024",
+        "Lift nou, care facilitează accesul între etaje",
+        "Finisaje premium, iluminare LED, spații eficiente energetic",
+        "Suprafață generoasă — peste 4.000 mp, disponibilă pentru închiriere imediată",
+        "Ideal pentru birouri, call center, clinici medicale, IT, showroom etc.",
+        "Acces facil, conexiuni excelente la transportul public",
+      ],
+      floors: [
+        {
+          title: "Mansardă",
+          desc: "Un spațiu elegant, cu un design modern, ideal pentru birouri premium, studio de creație sau alte activități care necesită un ambient special.",
+        },
+        {
+          title: "Etaj 2",
+          desc: "Spații flexibile, potrivite pentru birouri creative, coworking sau activități educaționale.",
+        },
+        {
+          title: "Etaj 1",
+          desc: "Spații de birouri compartimentate, ideale pentru echipe mari sau mici. Dispune și de o sală generoasă, perfectă pentru birouri tip open space.",
+        },
+        {
+          title: "Parter",
+          desc: "Perfect pentru showroom, recepție sau activități comerciale — vizibilitate excelentă și acces direct din stradă. Spații disponibile, de diferite dimensiuni.",
+        },
+        {
+          title: "Demisol",
+          desc: "Informații complete despre acest nivel vor fi adăugate în curând.",
+        },
+      ],
+    },
+    c2: {
+      metaDescription:
+        "Corp C2, Petroconsult Business Centre — spații moderne în curtea interioară a complexului, în centrul Ploieștiului. Vezi etajele și disponibilitatea spațiilor.",
+      heroEyebrow: "Corp C2 · Petroconsult Business Centre",
+      heroTitle: "Spații exclusiviste, în curtea interioară a complexului",
+      heroText:
+        "Corpul C2 oferă spre închiriere spații moderne în curtea interioară a ansamblului Petroconsult Business Centre, chiar în centrul Ploieștiului.",
+      heroFacts: ["Curtea interioară a complexului", "Acces controlat", "Spații disponibile"],
+      introEyebrow: "Despre acest corp",
+      introTitle: "Un mediu de afaceri privat și liniștit",
+      introText:
+        "Oferim spre închiriere spații moderne în Clădirea C2, parte a ansamblului Petroconsult Business Centre, situată în curtea interioară a complexului, în centrul Ploieștiului. O locație exclusivistă, cu un mediu de afaceri dinamic, ideală pentru birouri, firme de consultanță, servicii financiare sau alte activități comerciale.",
+      features: [
+        "Amplasare centrală, cu acces facil la transport public, instituții și zone comerciale",
+        "Infrastructură modernă și facilități adaptate nevoilor afacerilor",
+        "Curtea interioară a complexului oferă un mediu privat și liniștit",
+        "Acces controlat și securitate",
+      ],
+      floors: [
+        {
+          title: "Etaj 2",
+          desc: "Birouri moderne, potrivite pentru echipe mici sau activități administrative.",
+        },
+        {
+          title: "Etaj 1",
+          desc: "Spații generoase, ideale pentru diverse tipuri de activități comerciale.",
+        },
+        {
+          title: "Parter",
+          desc: "Spații la parter, cu acces facil din curtea interioară a complexului.",
+        },
+      ],
     },
   },
   notFound: {

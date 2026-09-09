@@ -1,9 +1,12 @@
+import { corpSlugs } from "@/config/corps";
+
 const BASE_URL = "https://petroconsult.ro";
 
 const routes = [
   { path: "", priority: 1, changeFrequency: "monthly" },
   { path: "/despre-noi", priority: 0.8, changeFrequency: "monthly" },
   { path: "/spatii-disponibile", priority: 0.9, changeFrequency: "weekly" },
+  ...corpSlugs.map((slug) => ({ path: `/corp/${slug}`, priority: 0.8, changeFrequency: "weekly" })),
   { path: "/sala-de-evenimente", priority: 0.7, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.6, changeFrequency: "yearly" },
 ];
