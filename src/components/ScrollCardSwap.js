@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/icons";
+import { useLanguage } from "@/context/LanguageContext";
 
 const AUTO_ADVANCE_MS = 5000;
 
 export default function ScrollCardSwap({ eyebrow, title, items, dark = false }) {
+  const { t } = useLanguage();
   const [active, setActive] = useState(0);
   const scrollerRef = useRef(null);
   const timerRef = useRef(null);
@@ -57,6 +60,13 @@ export default function ScrollCardSwap({ eyebrow, title, items, dark = false }) 
     el.scrollTo({ left: index * el.clientWidth, behavior: "smooth" });
   };
 
+  const goPrev = () => goToSlide((active - 1 + items.length) % items.length);
+  const goNext = () => goToSlide((active + 1) % items.length);
+
+  const arrowClass = `absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full shadow-lg text-clay-400 transition-colors ${
+    dark ? "bg-navy-700 hover:bg-navy-600" : "bg-navy-900 hover:bg-navy-800"
+  }`;
+
   return (
     <div className="lg:hidden">
       <p
@@ -70,23 +80,42 @@ export default function ScrollCardSwap({ eyebrow, title, items, dark = false }) 
         {title}
       </h2>
 
-      <div
-        ref={scrollerRef}
-        className="flex items-stretch overflow-x-auto overscroll-x-contain rounded-2xl [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-        style={{
-          scrollSnapType: "x mandatory",
-          WebkitOverflowScrolling: "touch",
-        }}
-      >
-        {items.map((item, i) => (
-          <div
-            key={i}
-            className="w-full shrink-0"
-            style={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
-          >
-            {item}
-          </div>
-        ))}
+      <div className="relative">
+        <div
+          ref={scrollerRef}
+          className="flex items-stretch overflow-x-auto overscroll-x-contain rounded-2xl [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          style={{
+            scrollSnapType: "x mandatory",
+            WebkitOverflowScrolling: "touch",
+          }}
+        >
+          {items.map((item, i) => (
+            <div
+              key={i}
+              className="w-full shrink-0"
+              style={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={goPrev}
+          aria-label={t("common.previousSlide")}
+          className={`${arrowClass} -left-4`}
+        >
+          <ChevronLeftIcon className="w-5 h-5" />
+        </button>
+        <button
+          type="button"
+          onClick={goNext}
+          aria-label={t("common.nextSlide")}
+          className={`${arrowClass} -right-4`}
+        >
+          <ChevronRightIcon className="w-5 h-5" />
+        </button>
       </div>
 
       <div className="flex items-center justify-center gap-2.5 mt-6">

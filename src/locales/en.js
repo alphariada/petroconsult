@@ -15,6 +15,8 @@ const en = {
     callPrefix: "Call",
     menuOpen: "Open menu",
     backToTop: "Back to top",
+    previousSlide: "Previous",
+    nextSlide: "Next",
     home: "Home",
   },
   footer: {

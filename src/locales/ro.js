@@ -15,6 +15,8 @@ const ro = {
     callPrefix: "Sună la",
     menuOpen: "Deschide meniul",
     backToTop: "Înapoi sus",
+    previousSlide: "Anterior",
+    nextSlide: "Următor",
     home: "Acasă",
   },
   footer: {
